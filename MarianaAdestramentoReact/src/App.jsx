@@ -2,6 +2,10 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import Adestramento from "./pages/Adestramento";
+import Socializacao from "./pages/Socializacao";
+import Consulta from "./pages/Consulta";
+import Contato from "./pages/Contato";
 
 function App() {
   return (
@@ -10,6 +14,10 @@ function App() {
       <main className="flex-1 bg-primary">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/adestramento" element={<Adestramento />} />
+          <Route path="/socializacao" element={<Socializacao />} />
+          <Route path="/consulta" element={<Consulta />} />
+          <Route path="/contato" element={<Contato />} />
         </Routes>
       </main>
       <Footer />
