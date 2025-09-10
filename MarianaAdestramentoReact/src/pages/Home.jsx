@@ -1,4 +1,6 @@
-function Home() {
+import React from "react";
+
+const Home = () => {
   return (
     <section className="min-h-full flex flex-col items-center justify-center text-center p-6 text-white">
       <h1 className="text-5xl font-bold text-highlight mb-4">
@@ -10,6 +12,6 @@ function Home() {
       <p>Lugar do texto com apresentação da página</p>
     </section>
   );
-}
+};
 
 export default Home;
