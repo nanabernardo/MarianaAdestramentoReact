@@ -49,7 +49,7 @@ function Navbar() {
 
       {/* Menu mobile (abre ao clicar) */}
       {isOpen && (
-        <div className="absolute top-20 right-4 md:hidden flex flex-col items-center gap-4 bg-primary p-4 rounded-3xl shadow-lg">
+        <div className="absolute top-20 right-4 md:hidden flex flex-col items-center gap-4 bg-primary p-4 rounded-3xl shadow-lg z-50">
           <Button to="/">Home</Button>
           <Button to="/adestramento">Adestramento</Button>
           <Button to="/consulta">Consulta</Button>
