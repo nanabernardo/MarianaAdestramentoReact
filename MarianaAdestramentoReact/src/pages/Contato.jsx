@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import SocialMediaIcons from "../components/SocialMediaIcons";
+import CaoEmail from "../assets/caoEmail.png";
 
 const Contato = () => {
   const [formData, setFormData] = useState({
@@ -49,6 +50,15 @@ const Contato = () => {
         fique à vontade para entrar em contato conosco. Estamos aqui para
         ajudar!
       </p>
+
+      <div className="flex justify-center gap-8">
+        <img
+          src={CaoEmail}
+          alt="Cao email"
+          className="relative w-70 h-auto rounded-full"
+        />
+      </div>
+
       <form
         onSubmit={handleSubmit}
         className="flex flex-col gap-4 max-w-md mx-auto"
