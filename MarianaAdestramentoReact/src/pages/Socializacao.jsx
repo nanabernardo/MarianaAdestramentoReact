@@ -28,7 +28,7 @@ const Socializacao = () => {
         encontros sociais tranquilos!
       </p>
 
-      <div className="flex justify-center gap-8 items-center ">
+      <div className="flex flex-wrap justify-center gap-8 items-center ">
         <div className="hidden md:block ">
           <ResponsiveImage
             src={Pp}
@@ -61,6 +61,34 @@ const Socializacao = () => {
             className="rounded-xl shadow-md w-70"
           />
         </div>
+      </div>
+
+      {/* Imagens mobile (coluna) */}
+      <div className="flex flex-col items-center gap-4 mt-6 md:hidden">
+        <ResponsiveImage
+          src={Pp}
+          alt="Pp"
+          aspect="1/1"
+          className="rounded-xl shadow-md w-70"
+        />
+        <ResponsiveImage
+          src={Matilha}
+          alt="Matilha"
+          aspect="1/1"
+          className="rounded-xl shadow-md w-70"
+        />
+        <ResponsiveImage
+          src={DoraBelaParque}
+          alt="Dora e Bela"
+          aspect="1/1"
+          className="rounded-xl shadow-md w-70"
+        />
+        <ResponsiveImage
+          src={DoraBelaPp}
+          alt="Dora e Bela"
+          aspect="1/1"
+          className="rounded-xl shadow-md w-70"
+        />
       </div>
     </section>
   );
