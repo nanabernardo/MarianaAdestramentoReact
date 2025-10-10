@@ -2,6 +2,7 @@ import React from "react";
 import ResponsiveImage from "../components/ResponsiveImage";
 import BelaDora from "../assets/Bela_Dora_2011.jpg";
 import LukePortao from "../assets/IMG-20230725-WA0006.jpg";
+import DoraBelaPp from "../assets/Dora_Bela_Pp.jpg";
 
 const Home = () => {
   return (
@@ -26,7 +27,7 @@ const Home = () => {
           <h2 className="text-2xl mb-6">
             Seu melhor amigo com melhor qualidade de vida
           </h2>
-          <p className="text-justify indent-8 p-2">
+          <p className="text-justify indent-8 p-2 text-xl">
             Me chamo Mariana, tenho 37 anos. Bióloga formada pela Unicamp
             (2007-2010). Desde criança eu convivo com cães de forma muito
             próxima (cães e gatos na verdade). Em 2010 minha mãe adotou duas
@@ -40,14 +41,14 @@ const Home = () => {
             filhotes. Na rua elas ficavam muito ansiosas, puxavam, reagiam e eu
             passava nervoso.
           </p>
-          <p className="text-justify indent-8 p-2">
+          <p className="text-justify indent-8 p-2 text-xl">
             Chamei um adestrador. Quando ele chegou e começou a interagir com
             elas, percebi que ele até podia saber como condicionar os comandos
             de adestramento, mas que ele sabia menos de comportamento canino do
             que eu. Fiquei revoltada e pensei "Como que ele está ganhando
             dinheiro com isso e eu não?"
           </p>
-          <p className="text-justify indent-8 p-2">
+          <p className="text-justify indent-8 p-2 text-xl">
             Como eu estava muito decepcionada com o que eu estava fazendo na
             época (mestrado) e eu já tinha percebido que eu gostava de biologia,
             mas era apaixonada por cães e que sair de casa todos os dias para
@@ -55,7 +56,7 @@ const Home = () => {
             mundo, decidi que me tornaria adestradora de cães. E deu certo. Dá
             certo desde 2014.
           </p>
-          <p className="text-justify indent-8">
+          <p className="text-justify indent-8 p-2 text-xl">
             Desde então aprendi muito mais sobre adestramento e comportamento
             canino (também entendi que nunca se para de aprender). Muitos cães
             passaram por mim (nunca parei para quantificar, mas tenho uma pilha

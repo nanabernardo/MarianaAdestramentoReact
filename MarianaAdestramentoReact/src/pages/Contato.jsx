@@ -44,7 +44,7 @@ const Contato = () => {
   return (
     <section className="p-6 text-center text-white">
       <h1 className="text-4xl font-bold text-highlight mb-4">Contato</h1>
-      <p className="text-white mb-6 text-center max-w-2xl mx-auto">
+      <p className="text-white mb-6 text-center max-w-2xl mx-auto text-xl">
         Se você tiver alguma dúvida, sugestão ou apenas quiser bater um papo,
         fique à vontade para entrar em contato conosco. Estamos aqui para
         ajudar!

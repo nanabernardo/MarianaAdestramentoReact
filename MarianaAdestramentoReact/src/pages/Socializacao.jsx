@@ -4,7 +4,7 @@ const Socializacao = () => {
   return (
     <section className="p-6 text-center text-white">
       <h1 className="text-4xl font-bold text-highlight mb-4">Socialização</h1>
-      <p className="text-white mb-6 text-center max-w-2xl mx-auto">
+      <p className="text-white mb-6 text-center max-w-2xl mx-auto text-xl">
         Cães não socializados de forma correta podem ter problemas de medo,
         ansiedade ou até agressividade. Como são animais sociáveis, é
         fundamental socializá-los com outros animais e pessoas, para que possam
