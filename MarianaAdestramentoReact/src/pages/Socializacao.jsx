@@ -1,16 +1,67 @@
 import React from "react";
+import Pp from "../assets/Pp.jpg";
+import DoraBelaParque from "../assets/Dora_Bela_parque.jpg";
+import Matilha from "../assets/matilha_parque.jpg";
+import DoraBelaPp from "../assets/Dora_Bela_Pp.jpg";
+import ResponsiveImage from "../components/ResponsiveImage";
 
 const Socializacao = () => {
   return (
     <section className="p-6 text-center text-white">
       <h1 className="text-4xl font-bold text-highlight mb-4">Socialização</h1>
       <p className="text-white mb-6 text-center max-w-2xl mx-auto text-xl">
-        Cães não socializados de forma correta podem ter problemas de medo,
-        ansiedade ou até agressividade. Como são animais sociáveis, é
-        fundamental socializá-los com outros animais e pessoas, para que possam
-        se sentir seguros e confortáveis.
+        <b>Medo, ansiedade e reatividade</b> são sinais de que seu cão precisa
+        de ajuda para interagir com o mundo. A falta de socialização correta
+        pode levar a desconforto profundo e até mesmo a comportamentos
+        agressivos.
       </p>
-      <p></p>
+      <p className="text-white mb-6 text-center max-w-2xl mx-auto text-xl">
+        A socialização vai muito além de apenas levar para passear ou expor o
+        cachorro a estímulos. É um processo guiado e seguro que deve ser
+        realizado de forma intencional. Preparo seu cão para lidar com novos
+        ambientes, sons, pessoas e outros animais de forma calma e confiante.
+      </p>
+      <p className="text-white mb-6 text-center max-w-2xl mx-auto text-xl">
+        Meu objetivo é transformar a insegurança em bem estar duradouro,
+        garantindo que o seu cão se sinta seguro e confortável em qualquer
+        situação. Fortaleça o laço de confiança e desfrute de passeios e
+        encontros sociais tranquilos!
+      </p>
+
+      <div className="flex justify-center gap-8 items-center ">
+        <div className="hidden md:block ">
+          <ResponsiveImage
+            src={Pp}
+            alt="Pp"
+            aspect="1/1"
+            className="rounded-xl shadow-md w-70"
+          />
+        </div>
+        <div className="hidden md:block ">
+          <ResponsiveImage
+            src={Matilha}
+            alt="Matilha"
+            aspect="1/1"
+            className="rounded-xl shadow-md w-70"
+          />
+        </div>
+        <div className="hidden md:block ">
+          <ResponsiveImage
+            src={DoraBelaParque}
+            alt="Dora e Bela"
+            aspect="1/1"
+            className="rounded-xl shadow-md w-70"
+          />
+        </div>
+        <div className="hidden md:block ">
+          <ResponsiveImage
+            src={DoraBelaPp}
+            alt="Dora e Bela"
+            aspect="1/1"
+            className="rounded-xl shadow-md w-70"
+          />
+        </div>
+      </div>
     </section>
   );
 };
