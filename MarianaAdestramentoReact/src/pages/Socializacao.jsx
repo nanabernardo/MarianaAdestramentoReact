@@ -3,9 +3,15 @@ import Pp from "../assets/Pp.jpg";
 import DoraBelaParque from "../assets/Dora_Bela_parque.jpg";
 import Matilha from "../assets/matilha_parque.jpg";
 import DoraBelaPp from "../assets/Dora_Bela_Pp.jpg";
-import ResponsiveImage from "../components/ResponsiveImage";
+import ResponsiveGallery from "../components/ResponsiveGallery";
 
 const Socializacao = () => {
+  const images = [
+    { src: Pp, alt: "Pp" },
+    { src: Matilha, alt: "Matilha" },
+    { src: DoraBelaParque, alt: "Dora e Bela" },
+    { src: DoraBelaPp, alt: "Dora Bela Pp" },
+  ];
   return (
     <section className="p-6 text-center text-white">
       <h1 className="text-4xl font-bold text-highlight mb-4">Socialização</h1>
@@ -28,68 +34,7 @@ const Socializacao = () => {
         encontros sociais tranquilos!
       </p>
 
-      <div className="flex flex-wrap justify-center gap-8 items-center ">
-        <div className="hidden md:block ">
-          <ResponsiveImage
-            src={Pp}
-            alt="Pp"
-            aspect="1/1"
-            className="rounded-xl shadow-md w-70"
-          />
-        </div>
-        <div className="hidden md:block ">
-          <ResponsiveImage
-            src={Matilha}
-            alt="Matilha"
-            aspect="1/1"
-            className="rounded-xl shadow-md w-70"
-          />
-        </div>
-        <div className="hidden md:block ">
-          <ResponsiveImage
-            src={DoraBelaParque}
-            alt="Dora e Bela"
-            aspect="1/1"
-            className="rounded-xl shadow-md w-70"
-          />
-        </div>
-        <div className="hidden md:block ">
-          <ResponsiveImage
-            src={DoraBelaPp}
-            alt="Dora e Bela"
-            aspect="1/1"
-            className="rounded-xl shadow-md w-70"
-          />
-        </div>
-      </div>
-
-      {/* Imagens mobile (coluna) */}
-      <div className="flex flex-col items-center gap-4 mt-6 md:hidden">
-        <ResponsiveImage
-          src={Pp}
-          alt="Pp"
-          aspect="1/1"
-          className="rounded-xl shadow-md w-70"
-        />
-        <ResponsiveImage
-          src={Matilha}
-          alt="Matilha"
-          aspect="1/1"
-          className="rounded-xl shadow-md w-70"
-        />
-        <ResponsiveImage
-          src={DoraBelaParque}
-          alt="Dora e Bela"
-          aspect="1/1"
-          className="rounded-xl shadow-md w-70"
-        />
-        <ResponsiveImage
-          src={DoraBelaPp}
-          alt="Dora e Bela"
-          aspect="1/1"
-          className="rounded-xl shadow-md w-70"
-        />
-      </div>
+      <ResponsiveGallery images={images} />
     </section>
   );
 };

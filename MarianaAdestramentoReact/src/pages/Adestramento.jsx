@@ -1,6 +1,17 @@
 import React from "react";
+import Cindy from "../assets/Eu_Cindy.jpg";
+import Goldens from "../assets/Goldens.jpg";
+import Tequila from "../assets/Tequila.jpg";
+import SRDBranca from "../assets/srd_branca2.jpg";
+import ResponsiveGallery from "../components/ResponsiveGallery";
 
 const Adestramento = () => {
+  const images = [
+    { src: Cindy, alt: "Cindy" },
+    { src: Goldens, alt: "Goldens" },
+    { src: Tequila, alt: "Tequila" },
+    { src: SRDBranca, alt: "SRD Branca" },
+  ];
   return (
     <section className="bg-primary min-h-screen p-6">
       <h2 className="text-4xl font-bold text-highlight mb-6 text-center">
@@ -89,6 +100,9 @@ const Adestramento = () => {
             bagunça em harmonia!
           </p>
         </div>
+      </div>
+      <div className="mt-8">
+        <ResponsiveGallery images={images} />
       </div>
     </section>
   );
