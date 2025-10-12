@@ -1,5 +1,5 @@
 import React from "react";
-import Cindy from "../assets/Eu_Cindy.jpg";
+import Cindy from "../assets/Eu_Cindy.JPG";
 import Goldens from "../assets/Goldens.jpg";
 import Tequila from "../assets/Tequila.jpg";
 import SRDBranca from "../assets/srd_branca2.jpg";
