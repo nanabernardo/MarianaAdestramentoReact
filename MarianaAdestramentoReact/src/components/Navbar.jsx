@@ -49,13 +49,21 @@ function Navbar() {
 
       {/* Menu mobile (abre ao clicar) */}
       {isOpen && (
-        <div className="absolute top-20 right-4 md:hidden flex flex-col items-center gap-4 bg-primary p-4 rounded-3xl shadow-lg z-50">
-          <Button to="/">Home</Button>
-          <Button to="/adestramento">Adestramento</Button>
-          <Button to="/consulta">Consulta</Button>
-          <Button to="/socializacao">Socialização</Button>
-          <Button to="/contato">Contato</Button>
-        </div>
+        <>
+          {/*  Overlay  */}
+          <div
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+            onClick={() => setIsOpen(false)}
+          ></div>
+          {/*  Menu mobile */}
+          <div className="absolute top-20 right-4 md:hidden flex flex-col items-center gap-4 bg-primary p-4 rounded-3xl shadow-lg z-50">
+            <Button to="/">Home</Button>
+            <Button to="/adestramento">Adestramento</Button>
+            <Button to="/consulta">Consulta</Button>
+            <Button to="/socializacao">Socialização</Button>
+            <Button to="/contato">Contato</Button>
+          </div>
+        </>
       )}
     </nav>
   );
