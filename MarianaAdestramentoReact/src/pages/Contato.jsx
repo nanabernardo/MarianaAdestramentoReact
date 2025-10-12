@@ -24,21 +24,23 @@ const Contato = () => {
 
     emailjs
       .send(
-        import.meta.env.EMAILJS_SERVICE_ID,
-        import.meta.env.EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           user_name: formData.nome,
           user_email: formData.email,
           message: formData.mensagem,
         },
-        import.meta.env.EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
-      .then(() => {
+      .then((response) => {
         alert("Mensagem enviada com sucesso!");
         setFormData({ nome: "", email: "", mensagem: "" });
+        console.log("Success", response.status, response.text);
       })
-      .catch(() => {
+      .catch((error) => {
         alert("Erro ao enviar mensagem. Tente novamente.");
+        console.log("failed", error);
       });
   };
 
