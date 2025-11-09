@@ -22,7 +22,7 @@ const Adestramento = () => {
         positivos para que seu melhor amigo tenha também uma experiência
         divertida e estimulante.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center  gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-6 max-w-6xl mx-auto">
         <div className="bg-secondary p-6 rounded-lg w-64  transition text-center">
           <h3 className="font-semibold text-white mb-2">Obediência básica</h3>
           <p className="text-white text-sm text-justify">
