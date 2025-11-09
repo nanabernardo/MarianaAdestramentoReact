@@ -10,12 +10,14 @@ function Navbar() {
   return (
     <nav className="bg-secondary p-4 flex justify-between items-center">
       {/* Logo */}
-      <div>
-        <img
-          src={logo}
-          alt="Logo Mariana Adestramento"
-          className="h-30 w-auto gap-3"
-        />
+      <div className="ml-10">
+        <a href="/" title="Voltar à página inicial">
+          <img
+            src={logo}
+            alt="Logo Mariana Adestramento"
+            className="h-30 w-auto gap-3"
+          />
+        </a>
       </div>
       <div className="flex mx-auto justify-between">
         {/* botões desktop */}
