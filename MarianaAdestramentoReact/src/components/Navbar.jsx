@@ -4,7 +4,7 @@ import Button from "./Button";
 import logo from "../assets/logo.png";
 import { Menu, X } from "lucide-react"; //incones hamburger e x
 
-function Navbar() {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -36,6 +36,9 @@ function Navbar() {
             <Button to="/socializacao">Socialização</Button>
           </li>
           <li>
+            <Button to="/valores">Valores</Button>
+          </li>
+          <li>
             <Button to="/contato">Contato</Button>
           </li>
         </ul>
@@ -59,16 +62,29 @@ function Navbar() {
           ></div>
           {/*  Menu mobile */}
           <div className="absolute top-20 right-4 md:hidden flex flex-col items-center gap-4 bg-primary p-4 rounded-3xl shadow-lg z-50">
-            <Button to="/">Home</Button>
-            <Button to="/adestramento">Adestramento</Button>
-            <Button to="/consulta">Consulta</Button>
-            <Button to="/socializacao">Socialização</Button>
-            <Button to="/contato">Contato</Button>
+            <Button to="/" onClick={() => setIsOpen(false)}>
+              Home
+            </Button>
+            <Button to="/adestramento" onClick={() => setIsOpen(false)}>
+              Adestramento
+            </Button>
+            <Button to="/consulta" onClick={() => setIsOpen(false)}>
+              Consulta
+            </Button>
+            <Button to="/socializacao" onClick={() => setIsOpen(false)}>
+              Socialização
+            </Button>
+            <Button to="/valores" onClick={() => setIsOpen(false)}>
+              Valores
+            </Button>
+            <Button to="/contato" onClick={() => setIsOpen(false)}>
+              Contato
+            </Button>
           </div>
         </>
       )}
     </nav>
   );
-}
+};
 
 export default Navbar;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Button({ to, children, onClick }) {
+const Button = ({ to, children, onClick }) => {
   if (to) {
     return (
       <Link
@@ -21,6 +21,6 @@ function Button({ to, children, onClick }) {
       {children}
     </button>
   );
-}
+};
 
 export default Button;

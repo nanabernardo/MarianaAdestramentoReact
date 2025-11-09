@@ -1,6 +1,6 @@
 import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
-function SocialMediaIcons() {
+const SocialMediaIcons = () => {
   /* Icones de redes sociais fixos */
   return (
     <div className="flex right-55 top-1/3 flex-row justify-center items-center gap-4 z-50 p-6">
@@ -34,5 +34,5 @@ function SocialMediaIcons() {
       </button>
     </div>
   );
-}
+};
 export default SocialMediaIcons;
