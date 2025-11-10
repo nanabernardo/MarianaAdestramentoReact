@@ -6,7 +6,7 @@ import Adestramento from "./pages/Adestramento";
 import Socializacao from "./pages/Socializacao";
 import Consulta from "./pages/Consulta";
 import Contato from "./pages/Contato";
-import Valores from "./pages/Valores";
+import Pacotes from "./pages/Pacotes";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Route path="/adestramento" element={<Adestramento />} />
           <Route path="/socializacao" element={<Socializacao />} />
           <Route path="/consulta" element={<Consulta />} />
-          <Route path="/valores" element={<Valores />} />
+          <Route path="/pacotes" element={<Pacotes />} />
           <Route path="/contato" element={<Contato />} />
         </Routes>
       </main>

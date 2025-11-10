@@ -36,7 +36,7 @@ const Navbar = () => {
             <Button to="/socializacao">Socialização</Button>
           </li>
           <li>
-            <Button to="/valores">Valores</Button>
+            <Button to="/pacotes">Pacotes de aulas</Button>
           </li>
           <li>
             <Button to="/contato">Contato</Button>
