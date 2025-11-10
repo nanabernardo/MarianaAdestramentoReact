@@ -1,14 +1,25 @@
 import React from "react";
+import Wendy from "../assets/Wendy.jpg";
+import Maya from "../assets/Maya.jpeg";
+import Barto from "../assets/Barto.jpg";
+import ResponsiveGallery from "../components/ResponsiveGallery";
 
 const Pacotes = () => {
+  const images = [
+    { src: Wendy, alt: "Wendy" },
+    { src: Maya, alt: "Maya" },
+    { src: Barto, alt: "Barto" },
+  ];
+
   return (
     <div className="p-6">
       <h2 className="text-4xl font-bold text-highlight mb-6 text-center">
         Pacotes
       </h2>
-      <h3 className="text-2xl">
+      <h3 className="text-2xl font-semibold text-white text-center pb-2">
         Você pode escolher quantas aulas fazer e por quanto tempo!
       </h3>
+      <p className="text-white text-center pb-2">Escolha a frequência e depois por quantos meses (tem desconto quanto mais meses forem contratados)</p>
 
       <div>
         <table className="text-white border border-secondary border-collapse w-full max-w-[720px] mx-auto">
@@ -38,6 +49,9 @@ const Pacotes = () => {
             </tr>
           </tbody>
         </table>
+      </div>
+      <div className="mt-8">
+        <ResponsiveGallery images={images} />
       </div>
     </div>
   );
