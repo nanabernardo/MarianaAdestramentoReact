@@ -1,4 +1,3 @@
-import React from "react";
 import Wendy from "../assets/Wendy.jpg";
 import Maya from "../assets/Maya.jpeg";
 import Barto from "../assets/Barto.jpg";
@@ -23,7 +22,6 @@ const Pacotes = () => {
 
       <div>
         <table className="text-white border border-secondary border-collapse w-full max-w-[720px] mx-auto">
-          <caption className="font-semibold text-lg md-2 mb-2"></caption>
           <thead>
             <tr className="bg-secondary text-center">
               <th scope="col" className="p-2">

@@ -1,4 +1,3 @@
-import React from "react";
 import Pp from "../assets/Pp.jpg";
 import DoraBelaParque from "../assets/Dora_Bela_parque.jpg";
 import Matilha from "../assets/matilha_parque.jpg";

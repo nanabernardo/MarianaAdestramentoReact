@@ -10,7 +10,7 @@ import Pacotes from "./pages/Pacotes";
 
 function App() {
   return (
-    <div className="min-h-screen bg-primary-500 flex flex-col">
+    <div className="min-h-screen bg-primary flex flex-col">
       <Navbar />
       <main className="flex-1 bg-primary">
         <Routes>

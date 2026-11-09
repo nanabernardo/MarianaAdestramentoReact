@@ -1,4 +1,3 @@
-import React from "react";
 import { X } from "lucide-react";
 import { useState } from "react";
 
@@ -24,7 +23,7 @@ const ResponsiveImage = ({ src, alt, aspect = "16/9", className = "" }) => {
       {/* Modal */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/80 flex intems-center justify-center z-50"
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
           onClick={() => setIsOpen(false)}
         >
           {/* conteúdo Modal */}

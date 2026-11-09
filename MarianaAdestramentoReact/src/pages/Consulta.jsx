@@ -1,4 +1,3 @@
-import React from "react";
 import LanduPiaf from "../assets/Landu_Piaf.jpg";
 import Schnauzer from "../assets/Schnauzer.jpg";
 import ResponsiveGallery from "../components/ResponsiveGallery";

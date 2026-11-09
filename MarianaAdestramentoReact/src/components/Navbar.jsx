@@ -74,8 +74,8 @@ const Navbar = () => {
             <Button to="/socializacao" onClick={() => setIsOpen(false)}>
               Socialização
             </Button>
-            <Button to="/valores" onClick={() => setIsOpen(false)}>
-              Valores
+            <Button to="/pacotes" onClick={() => setIsOpen(false)}>
+              Pacotes de Aulas
             </Button>
             <Button to="/contato" onClick={() => setIsOpen(false)}>
               Contato

@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "../components/Button";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
@@ -53,7 +52,7 @@ const Contato = () => {
         ajudar!
       </p>
 
-      <div className="flex justify-center gap-8">
+      <div className="flex justify-center gap-8 mb-16">
         <img
           src={CaoEmail}
           alt="Cao email"
@@ -63,7 +62,7 @@ const Contato = () => {
 
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-4 max-w-md mx-auto"
+        className="flex flex-col gap-4 max-w-md mx-auto mt-6"
       >
         <input
           type="text"

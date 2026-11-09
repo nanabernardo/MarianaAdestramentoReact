@@ -1,4 +1,3 @@
-import React from "react";
 import Cindy from "../assets/Eu_Cindy.JPG";
 import Goldens from "../assets/Goldens.jpg";
 import Tequila from "../assets/Tequila.jpg";
@@ -32,7 +31,7 @@ const Adestramento = () => {
         </div>
         <div className="bg-secondary p-6 rounded-lg w-64  transition text-center">
           <h3 className="font-semibold text-white mb-2 ">
-            Adestramendo sanitário
+            Adestramento sanitário
           </h3>
           <p className="text-white text-sm text-justify ">
             Ensinando seu melhor amigo a fazer as necessidades no lugar certo,
@@ -43,7 +42,7 @@ const Adestramento = () => {
           <h3 className="font-semibold text-white mb-2 ">
             Correção de agressividade
           </h3>
-          <p className="text-white text-sm text-justify text-align-justify">
+          <p className="text-white text-sm text-justify">
             Identificação do motivo da agressividade e resolução do problema de
             forma consistente e duradoura.
           </p>
@@ -53,8 +52,8 @@ const Adestramento = () => {
             Correção de Ansiedade
           </h3>
           <p className="text-white text-sm text-justify ">
-            Construição de confiança e gerenciamento do estresse, transformando
-            a insegurança em tranquilidade e bem-estar.
+            Construção de confiança e gerenciamento do estresse, transformando a
+            insegurança em tranquilidade e bem-estar.
           </p>
         </div>
         <div className="bg-secondary p-6 rounded-lg w-64  transition text-center">
@@ -63,7 +62,7 @@ const Adestramento = () => {
           </h3>
           <p className="text-white text-sm text-justify ">
             Desenvolver a independência do seu cão para que ele fique calmo e
-            seguro mesmo na sua ausência, sem latidos ou distruição.
+            seguro mesmo na sua ausência, sem latidos ou destruição.
           </p>
         </div>
         <div className="bg-secondary p-6 rounded-lg w-64  transition text-center">
