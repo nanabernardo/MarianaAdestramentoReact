@@ -30,7 +30,7 @@ const Contato = () => {
           user_email: formData.email,
           message: formData.mensagem,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       )
       .then((response) => {
         alert("Mensagem enviada com sucesso!");
@@ -89,9 +89,7 @@ const Contato = () => {
           placeholder="Sua mensagem"
           className="p-2 rounded-xl text-white border"
         />
-        <Button type="submit" className="p-2 rounded text-white">
-          Enviar
-        </Button>
+        <Button type="submit">Enviar</Button>
       </form>
 
       {/* Icones de redes sociais fixos */}
