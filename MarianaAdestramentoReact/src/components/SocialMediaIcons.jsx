@@ -1,38 +1,38 @@
 import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { links } from "../data/contato";
+
+// A "planilha": uma linha (objeto) por rede social
+// Fica fora do componente porque nunca muda.
+
+const redes = [
+  { nome: "WhatsApp", url: links.whatsapp, Icone: FaWhatsapp },
+  { nome: "Facebook", url: links.facebook, Icone: FaFacebook },
+  { nome: "Instagram", url: links.instagram, Icone: FaInstagram },
+];
 
 const SocialMediaIcons = () => {
-  /* Icones de redes sociais fixos */
   return (
     <div className="flex flex-row justify-center items-center gap-4 p-6">
-      <button
-        onClick={() => window.open("https://wa.me/5511976978597", "_blank")}
-        className="bg-highlight p-3 rounded-full hover:bg-hoverbtn transition-colors w-12 h-12 flex items-center justify-center"
-      >
-        <FaWhatsapp size={24} className="text-white"></FaWhatsapp>
-      </button>
-      <button
-        onClick={() =>
-          window.open(
-            "https://www.facebook.com/marianabernardo.adestradora",
-            "_blank"
-          )
-        }
-        className="bg-highlight p-3 rounded-full hover:bg-hoverbtn transition-colors w-12 h-12 flex items-center justify-center"
-      >
-        <FaFacebook size={24} className="text-white"></FaFacebook>
-      </button>
-      <button
-        onClick={() =>
-          window.open(
-            "https://www.instagram.com/mariana.adestradora/",
-            "_blank"
-          )
-        }
-        className="bg-highlight p-3 rounded-full hover:bg-hoverbtn transition-colors w-12 h-12 flex items-center justify-center"
-      >
-        <FaInstagram size={24} className="text-white"></FaInstagram>
-      </button>
+      {/* map: para cada rede da lista, devolve um <a> */}
+      {redes.map(
+        (
+          { nome, url, Icone }, //tranforma cada objeto de dados num <a>
+        ) => (
+          <a
+            key={nome} // identidade única de cada item da lista (seção 5)
+            href={url}
+            target="_blank" // abre em nova aba
+            rel="noopener noreferrer" // impede a nova aba de controlar o site
+            aria-label={`${nome} da Mariana (abre em nova aba)`}
+            className="bg-highlight hover:bg-hoverbtn transition-colors rounded-full w-12 h-12 flex items-center justify-center"
+          >
+            {/* aria-hidden: o ícone é só enfeite; quem dá o nome é o aria-label */}
+            <Icone size={24} className="text-ink" aria-hidden="true"></Icone>
+          </a>
+        ),
+      )}
     </div>
   );
 };
+
 export default SocialMediaIcons;
