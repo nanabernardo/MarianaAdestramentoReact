@@ -43,6 +43,10 @@ subpasta `MarianaAdestramentoReact/`. Os comandos npm rodam dentro dela.
 | secondary   | #704b8d | navbar, botões            |
 | highlight   | #ee9d37 | textos e botões em destaque |
 | hoverbtn    | #eec491 | hover de botões           |
+| ink         | #2a1240 | TEXTO sobre o laranja e sobre fundos claros |
+| primary-dark| #4a1f6b | fundo das seções - profundidade |
+| light       | #f7f1fb | seções e cards claros     |
+
 
 Use as classes do Tailwind com esses tokens (`bg-primary`, `text-highlight`…)
 em vez de cores soltas no código.
