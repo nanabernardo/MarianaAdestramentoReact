@@ -1,8 +1,44 @@
 @import "tailwindcss";
 
+/*
+  @theme: aqui ficam os "tokens" de design do site.
+  Cada variável com prefixo conhecido vira classes do Tailwind:
+    --color-xxx  -> bg-xxx, text-xxx, border-xxx...
+    --font-xxx   -> font-xxx
+    --shadow-xxx -> shadow-xxx
+  Regra do projeto: use sempre estas classes, nunca cores soltas no código.
+*/
 @theme {
+  /* ===== Cores da marca ===== */
   --color-primary: #642e8e; /* fundo do site */
   --color-secondary: #704b8d; /* botões e alguns elementos */
   --color-highlight: #ee9d37; /* texto e alguns botões */
   --color-hoverbtn: #eec491; /* hover de botões */
+
+  /* ===== Cores de apoio ===== */
+  /* Roxo bem escuro para TEXTO sobre o laranja e sobre fundos claros.
+     Branco sobre o laranja tem contraste 2,2:1 (difícil de ler);
+     este roxo tem 7,6:1 e continua dentro da identidade da marca. */
+  --color-ink: #2a1240;
+
+  /* Roxo mais escuro que o primary, para alternar o fundo das seções
+     e dar sensação de profundidade (ex.: rodapé, faixas de destaque). */
+  --color-primary-dark: #4a1f6b;
+
+  /* Lilás quase branco, para seções e cards claros que dão "respiro"
+     entre os blocos roxos. */
+  --color-light: #f7f1fb;
+
+  /* ===== Fontes ===== */
+  /* --font-sans é a fonte PADRÃO do Tailwind: ao redefinir aqui,
+     todo o site passa a usar a Nunito automaticamente.
+     As fontes depois da vírgula são "plano B", caso a Nunito não carregue. */
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  /* Fonte dos títulos. Só aparece onde usarmos a classe font-display. */
+  --font-display: "Outfit", "Nunito", ui-sans-serif, sans-serif;
+
+  /* ===== Sombra ===== */
+  /* Sombra suave e "puxada" para baixo, que faz os cards parecerem
+     flutuar sobre o fundo. Uso: classe shadow-card. */
+  --shadow-card: 0 12px 30px -12px rgb(0 0 0 / 0.45);
 }

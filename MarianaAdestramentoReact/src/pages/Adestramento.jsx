@@ -22,14 +22,14 @@ const Adestramento = () => {
         divertida e estimulante.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-6 max-w-6xl mx-auto">
-        <div className="bg-secondary p-6 rounded-lg w-64  transition text-center">
+        <div className="bg-secondary p-6 rounded-lg  shadow-card w-64  transition text-center">
           <h3 className="font-semibold text-white mb-2">Obediência básica</h3>
           <p className="text-white text-sm text-justify">
             Condicionamento dos comandos básicos: "senta", "deita", "fica",
             "vem", "junto" e "não" de forma divertida.
           </p>
         </div>
-        <div className="bg-secondary p-6 rounded-lg w-64  transition text-center">
+        <div className="bg-secondary p-6 rounded-lg  shadow-card w-64  transition text-center">
           <h3 className="font-semibold text-white mb-2 ">
             Adestramento sanitário
           </h3>
@@ -38,7 +38,7 @@ const Adestramento = () => {
             sem punições ou dor de cabeça.
           </p>
         </div>
-        <div className="bg-secondary p-6 rounded-lg w-64  transition text-center">
+        <div className="bg-secondary p-6 rounded-lg shadow-card w-64  transition text-center">
           <h3 className="font-semibold text-white mb-2 ">
             Correção de agressividade
           </h3>
@@ -47,7 +47,7 @@ const Adestramento = () => {
             forma consistente e duradoura.
           </p>
         </div>
-        <div className="bg-secondary p-6 rounded-lg w-64  transition text-center">
+        <div className="bg-secondary p-6 rounded-lg shadow-card w-64  transition text-center">
           <h3 className="font-semibold text-white mb-2 ">
             Correção de Ansiedade
           </h3>
@@ -56,7 +56,7 @@ const Adestramento = () => {
             insegurança em tranquilidade e bem-estar.
           </p>
         </div>
-        <div className="bg-secondary p-6 rounded-lg w-64  transition text-center">
+        <div className="bg-secondary p-6 rounded-lg shadow-card w-64  transition text-center">
           <h3 className="font-semibold text-white mb-2 ">
             Ansiedade de Separação
           </h3>
@@ -65,7 +65,7 @@ const Adestramento = () => {
             seguro mesmo na sua ausência, sem latidos ou destruição.
           </p>
         </div>
-        <div className="bg-secondary p-6 rounded-lg w-64  transition text-center">
+        <div className="bg-secondary p-6 rounded-lg shadow-card w-64  transition text-center">
           <h3 className="font-semibold text-white mb-2 ">
             Caixa de Transporte
           </h3>
@@ -74,7 +74,7 @@ const Adestramento = () => {
             viaja e descansa sem estresse e com a máxima proteção.
           </p>
         </div>
-        <div className="bg-secondary p-6 rounded-lg w-64  transition text-center">
+        <div className="bg-secondary p-6 rounded-lg shadow-card w-64  transition text-center">
           <h3 className="font-semibold text-white mb-2 ">
             Correção de Reatividade
           </h3>
@@ -83,7 +83,7 @@ const Adestramento = () => {
             passeios tranquilos, prazerosos e divertidos.
           </p>
         </div>
-        <div className="bg-secondary p-6 rounded-lg w-64  transition text-center">
+        <div className="bg-secondary p-6 rounded-lg shadow-card w-64  transition text-center">
           <h3 className="font-semibold text-white mb-2 ">
             Bons Hábitos em Casa
           </h3>

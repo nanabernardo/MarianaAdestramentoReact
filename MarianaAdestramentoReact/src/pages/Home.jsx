@@ -19,7 +19,7 @@ const Home = () => {
 
         {/* texto principal */}
         <div className="flex-1 max-w-4xl mx-auto mt-0 text-center">
-          <h1 className="text-5xl font-bold text-highlight mb-4">
+          <h1 className="text-5xl font-semibold font-display text-highlight mb-4 ">
             Mariana Bernardo Adestramento
           </h1>
           <h2 className="text-2xl mb-6">
