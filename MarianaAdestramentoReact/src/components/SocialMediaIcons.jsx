@@ -10,9 +10,12 @@ const redes = [
   { nome: "Instagram", url: links.instagram, Icone: FaInstagram },
 ];
 
-const SocialMediaIcons = () => {
+// className: posição e espaçamento, decididos por quem usa o componente.
+// Se ninguém passar nada, usa "justify-center p-6" (o visual de antes).
+const SocialMediaIcons = ({ className = "justify-center p-6" }) => {
   return (
-    <div className="flex flex-row justify-center items-center gap-4 p-6">
+    // Crase (`), não aspas: permite encaixar a variável com ${ }
+    <div className={`flex flex-row items-center gap-4 ${className}`}>
       {/* map: para cada rede da lista, devolve um <a> */}
       {redes.map(
         (
