@@ -17,7 +17,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-secondary p-4 flex justify-between items-center">
+    <nav className="bg-secondary p-4 flex justify-between items-center  lg:sticky top-0 z-30">
       {/* Logo */}
       <div className="ml-10">
         <Link to="/" title="Voltar à página inicial">
@@ -47,7 +47,7 @@ const Navbar = () => {
           type="button" // não é botão de formulário (mesma regra do Button)
           aria-label="Menu" // nome do botão para o leitor de tela, já que só tem um ícone
           aria-expanded={isOpen} // avisa se o menu está aberto (true) ou fechado (false)
-          className="lg:hidden text-white z-60 relative hover:cursor-pointer"
+          className="lg:hidden  text-white z-60 relative hover:cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
           {/* aria-hidden: o ícone é só enfeite, o nome já está no aria-label */}
