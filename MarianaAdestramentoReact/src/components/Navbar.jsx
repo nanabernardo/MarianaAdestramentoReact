@@ -31,6 +31,26 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", verificarRolagem);
   }, []); // [] vazio: liga o "porteiro" UMA vez só, quando a Navbar aparece
 
+  // Fecha o menu mobile com a tecla Esc
+  useEffect(() => {
+    // Menu fechado: não há o que fechar, então nem criamos o listener
+    if (!isOpen) return;
+
+    // Função com nome: o removeEventListener precisa receber exatamente a mesma função que o addEventListener recebeu
+    function fecharComEsc(evento) {
+      if (evento.key === "Escape") {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("keydown", fecharComEsc);
+
+    // Limpeza roda quando isOpen muda (o menu fechou) ou quando a Navbar sai da tela
+    return () => {
+      document.removeEventListener("keydown", fecharComEsc);
+    };
+  }, [isOpen]); // roda de novo sempre que o menu abre ou fecha
+
   return (
     <nav
       className={`lg:sticky lg:top-0 lg:z-30  p-4 flex justify-between items-center  transition-all duration-300 ${
