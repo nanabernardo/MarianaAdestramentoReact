@@ -44,10 +44,18 @@ const Navbar = () => {
 
         {/* icone hamburgues (mobile) */}
         <button
-          className="lg:hidden text-white z-20 relative hover:cursor-pointer"
+          type="button" // não é botão de formulário (mesma regra do Button)
+          aria-label="Menu" // nome do botão para o leitor de tela, já que só tem um ícone
+          aria-expanded={isOpen} // avisa se o menu está aberto (true) ou fechado (false)
+          className="lg:hidden text-white z-60 relative hover:cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {/* aria-hidden: o ícone é só enfeite, o nome já está no aria-label */}
+          {isOpen ? (
+            <X size={28} aria-hidden="true" />
+          ) : (
+            <Menu size={28} aria-hidden="true" />
+          )}
         </button>
       </div>
 
@@ -58,9 +66,24 @@ const Navbar = () => {
           <div
             className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
             onClick={() => setIsOpen(false)}
+            aria-hidden="true" // é só um funda para clicar e fechar, o leitor de tela ignora
           ></div>
           {/*  Menu mobile */}
-          <div className="absolute top-20 right-4 lg:hidden flex flex-col items-center gap-4 bg-primary p-4 rounded-3xl shadow-lg z-50">
+          <ul className="absolute top-20 right-4 lg:hidden flex flex-col items-center gap-4 bg-primary p-4 rounded-3xl shadow-lg z-50">
+            {paginas.map(({ nome, caminho }) => (
+              <li key={caminho}>
+                <NavLink
+                  to={caminho}
+                  end
+                  className={classesDoLink}
+                  onClick={() => setIsOpen(false)} // fecha o meno ao escolher
+                >
+                  {nome}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+          {/* <div className="absolute top-20 right-4 lg:hidden flex flex-col items-center gap-4 bg-primary p-4 rounded-3xl shadow-lg z-50">
             {paginas.map(({ nome, caminho }) => (
               <NavLink
                 key={caminho}
@@ -72,7 +95,7 @@ const Navbar = () => {
                 {nome}
               </NavLink>
             ))}
-          </div>
+          </div> */}
         </>
       )}
     </nav>
