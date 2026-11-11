@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { Menu, X } from "lucide-react"; //incones hamburger e x
@@ -16,8 +16,27 @@ const classesDoLink = ({ isActive }) => `${base} ${isActive ? ativo : inativo}`;
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // true quando a página já rolou um pouco para baixo
+  const [rolou, setRolou] = useState(false);
+
+  // useEffect: roda DEPOIS que o componente aparece na tela
+  useEffect(() => {
+    // função que confere a rolagem: mais de 10px desde o topo = rolou
+    const verificarRolagem = () => setRolou(window.scrollY > 10);
+
+    verificarRolagem(); // confere já na chegada (ex: recarregou no meio da página)
+    window.addEventListener("scroll", verificarRolagem); // começa a vigiar a rolagem
+
+    //limpeza: quando a Navbar sai da Tela, para de vigiar
+    return () => window.removeEventListener("scroll", verificarRolagem);
+  }, []); // [] vazio: liga o "porteiro" UMA vez só, quando a Navbar aparece
+
   return (
-    <nav className="bg-secondary p-4 flex justify-between items-center  lg:sticky top-0 z-30">
+    <nav
+      className={`lg:sticky lg:top-0 lg:z-30  p-4 flex justify-between items-center  transition-all duration-300 ${
+        rolou ? "bg-secondary lg:bg-primary-dark lg:shadow-lg" : "bg-secondary"
+      }`}
+    >
       {/* Logo */}
       <div className="ml-10">
         <Link to="/" title="Voltar à página inicial">
