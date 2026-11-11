@@ -2,17 +2,7 @@ import { Link } from "react-router-dom";
 import SocialMediaIcons from "./SocialMediaIcons";
 import logo from "../assets/logo-fundo-roxo.png";
 import { links } from "../data/contato";
-
-// lista das páginas do site, no mesmo esquema da etapa4:
-// uma lista (objeto) por página. Fica FORA do componente porque nunca muda, então não precisa ser recriada a cada renderização
-const paginas = [
-  { nome: "Home", caminho: "/" },
-  { nome: "Adestramento", caminho: "/adestramento" },
-  { nome: "Consulta", caminho: "/consulta" },
-  { nome: "Socialização", caminho: "/socializacao" },
-  { nome: "Pacotes de aulas", caminho: "/pacotes" },
-  { nome: "Contato", caminho: "/contato" },
-];
+import { paginas } from "../data/paginas";
 
 const Footer = () => {
   // Pega o ano de HOJE no computador de quem está visitando o site

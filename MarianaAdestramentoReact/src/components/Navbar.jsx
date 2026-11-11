@@ -2,18 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { Menu, X } from "lucide-react"; //incones hamburger e x
-
-//Lista das páginas: alimenta o menu do computador e o do celular
-//Fica fora do componente porque nunca muda
-
-const paginas = [
-  { nome: "Home", caminho: "/" },
-  { nome: "Adestramento", caminho: "/adestramento" },
-  { nome: "Consulta", caminho: "/consulta" },
-  { nome: "Socialização", caminho: "/socializacao" },
-  { nome: "Pacotes de aulas", caminho: "/pacotes" },
-  { nome: "Contato", caminho: "/contato" },
-];
+import { paginas } from "../data/paginas";
 
 // Visual dos links
 const base =
@@ -21,7 +10,7 @@ const base =
 const ativo = "underline decoration-highlight"; //pagina atual laranja
 const inativo = "hover:underline decoration-white/40"; //demais: discretas
 
-// O NavLink chama esta função SOZINHI+O, entregando {isActive}. Ela devolve a string de classes certa para cada caso
+// O NavLink chama esta função SOZINHO, entregando {isActive}. Ela devolve a string de classes certa para cada caso
 const classesDoLink = ({ isActive }) => `${base} ${isActive ? ativo : inativo}`;
 
 const Navbar = () => {
