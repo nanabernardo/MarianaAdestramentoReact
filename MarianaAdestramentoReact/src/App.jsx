@@ -7,10 +7,12 @@ import Socializacao from "./pages/Socializacao";
 import Consulta from "./pages/Consulta";
 import Contato from "./pages/Contato";
 import Pacotes from "./pages/Pacotes";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <div className="min-h-screen bg-primary flex flex-col">
+      <ScrollToTop />
       <Navbar />
       <main className="flex-1 bg-primary">
         <Routes>
