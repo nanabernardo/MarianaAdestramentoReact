@@ -14,7 +14,8 @@ const variants = {
   // Roxo com texto branco; no hover, escurece para o roxo mais fundo.
   secondary: "bg-secondary text-white hover:bg-primary-dark",
   //variante teste
-  outline: "border text-highlight border-highlight hover:bg-highlight hover:text-ink"
+  outline:
+    "border text-white border-highlight hover:bg-highlight hover:text-ink",
 };
 
 const Button = ({
