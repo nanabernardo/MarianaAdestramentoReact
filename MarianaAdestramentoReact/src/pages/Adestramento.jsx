@@ -4,6 +4,8 @@ import Tequila from "../assets/Tequila.jpg";
 import SRDBranca from "../assets/srd_branca2.jpg";
 import ResponsiveGallery from "../components/ResponsiveGallery";
 
+import SectionHeader from "../components/SectionHeader";
+
 const Adestramento = () => {
   const images = [
     { src: Cindy, alt: "Cindy" },
@@ -13,14 +15,11 @@ const Adestramento = () => {
   ];
   return (
     <section className="bg-primary min-h-screen p-6">
-      <h2 className="text-4xl font-bold text-highlight mb-6 text-center">
-        Adestramento
-      </h2>
-      <p className="text-white mb-6 text-justify max-w-2xl mx-auto text-xl">
-        Oferecemos atendimento personalizado, com utilização de reforçadores
-        positivos para que seu melhor amigo tenha também uma experiência
-        divertida e estimulante.
-      </p>
+      <SectionHeader
+        as="h1"
+        title="Adestramento"
+        subtitle="Oferecemos atendimento personalizado, com utilização de reforçadores positivos para que seu melhor amigo tenha também uma experiência divertida e estimulante."
+      />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-6 max-w-6xl mx-auto">
         <div className="bg-secondary p-6 rounded-lg  shadow-card w-64  transition text-center">
           <h3 className="font-semibold text-white mb-2">Obediência básica</h3>
