@@ -8,6 +8,7 @@ import Consulta from "./pages/Consulta";
 import Contato from "./pages/Contato";
 import Pacotes from "./pages/Pacotes";
 import ScrollToTop from "./components/ScrollToTop";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
           <Route path="/consulta" element={<Consulta />} />
           <Route path="/pacotes" element={<Pacotes />} />
           <Route path="/contato" element={<Contato />} />
+          {/* curinga: qualquer endereço que não combinou com as rotas acima */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
