@@ -3,8 +3,9 @@ import Goldens from "../assets/Goldens.jpg";
 import Tequila from "../assets/Tequila.jpg";
 import SRDBranca from "../assets/srd_branca2.jpg";
 import ResponsiveGallery from "../components/ResponsiveGallery";
-
 import SectionHeader from "../components/SectionHeader";
+import ServiceCard from "../components/ServiceCard";
+import { servicosAdestramento } from "../data/servicos";
 
 const Adestramento = () => {
   const images = [
@@ -21,76 +22,15 @@ const Adestramento = () => {
         subtitle="Oferecemos atendimento personalizado, com utilização de reforçadores positivos para que seu melhor amigo tenha também uma experiência divertida e estimulante."
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-6 max-w-6xl mx-auto">
-        <div className="bg-secondary p-6 rounded-lg  shadow-card w-64  transition text-center">
-          <h3 className="font-semibold text-white mb-2">Obediência básica</h3>
-          <p className="text-white text-sm text-justify">
-            Condicionamento dos comandos básicos: "senta", "deita", "fica",
-            "vem", "junto" e "não" de forma divertida.
-          </p>
-        </div>
-        <div className="bg-secondary p-6 rounded-lg  shadow-card w-64  transition text-center">
-          <h3 className="font-semibold text-white mb-2 ">
-            Adestramento sanitário
-          </h3>
-          <p className="text-white text-sm text-justify ">
-            Ensinando seu melhor amigo a fazer as necessidades no lugar certo,
-            sem punições ou dor de cabeça.
-          </p>
-        </div>
-        <div className="bg-secondary p-6 rounded-lg shadow-card w-64  transition text-center">
-          <h3 className="font-semibold text-white mb-2 ">
-            Correção de agressividade
-          </h3>
-          <p className="text-white text-sm text-justify">
-            Identificação do motivo da agressividade e resolução do problema de
-            forma consistente e duradoura.
-          </p>
-        </div>
-        <div className="bg-secondary p-6 rounded-lg shadow-card w-64  transition text-center">
-          <h3 className="font-semibold text-white mb-2 ">
-            Correção de Ansiedade
-          </h3>
-          <p className="text-white text-sm text-justify ">
-            Construção de confiança e gerenciamento do estresse, transformando a
-            insegurança em tranquilidade e bem-estar.
-          </p>
-        </div>
-        <div className="bg-secondary p-6 rounded-lg shadow-card w-64  transition text-center">
-          <h3 className="font-semibold text-white mb-2 ">
-            Ansiedade de Separação
-          </h3>
-          <p className="text-white text-sm text-justify ">
-            Desenvolver a independência do seu cão para que ele fique calmo e
-            seguro mesmo na sua ausência, sem latidos ou destruição.
-          </p>
-        </div>
-        <div className="bg-secondary p-6 rounded-lg shadow-card w-64  transition text-center">
-          <h3 className="font-semibold text-white mb-2 ">
-            Caixa de Transporte
-          </h3>
-          <p className="text-white text-sm text-justify ">
-            Essencial para a segurança em viagens de carro e avião. Seu cão
-            viaja e descansa sem estresse e com a máxima proteção.
-          </p>
-        </div>
-        <div className="bg-secondary p-6 rounded-lg shadow-card w-64  transition text-center">
-          <h3 className="font-semibold text-white mb-2 ">
-            Correção de Reatividade
-          </h3>
-          <p className="text-white text-sm text-justify ">
-            Ensinamos seu pet a se manter calmo e focado em você, garantindo
-            passeios tranquilos, prazerosos e divertidos.
-          </p>
-        </div>
-        <div className="bg-secondary p-6 rounded-lg shadow-card w-64  transition text-center">
-          <h3 className="font-semibold text-white mb-2 ">
-            Bons Hábitos em Casa
-          </h3>
-          <p className="text-white text-sm text-justify ">
-            Estabelecer limites claros e consistentes, ensinando seu cão a ter
-            bom comportamento e respeitar as regras da família.
-          </p>
-        </div>
+        {/* um card para cada serviço da lista */}
+        {servicosAdestramento.map((servico) => (
+          <ServiceCard
+            key={servico.titulo}
+            as="h2"
+            title={servico.titulo}
+            description={servico.descricao}            
+          />
+        ))}
       </div>
       <div className="mt-8">
         <ResponsiveGallery images={images} />
