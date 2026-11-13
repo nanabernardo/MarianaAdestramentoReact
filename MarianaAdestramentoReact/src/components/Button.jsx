@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 // Ficam fora do componente porque nunca mudam: assim não são
 // recriadas a cada vez que o botão aparece na tela.
 const base =
-  "inline-block font-semibold px-4 py-2 rounded-3xl transition-colors";
+  // inline-flex: o botão continua do tamanho do conteúdo (como o inline-block),
+  // mas agora alinha ícone + texto lado a lado, centralizados, com espaço entre eles.
+  "inline-flex items-center justify-center gap-2 font-semibold px-4 py-2 rounded-3xl transition-colors";
 
 // Um objeto que funciona como "cardápio" de visuais.
 // A chave (primary, secondary) é o nome que você passa em variant="...".
@@ -16,10 +18,13 @@ const variants = {
   //variante teste
   outline:
     "border text-white border-highlight hover:bg-highlight hover:text-ink",
+  outlineDark:
+    "border border-primary-dark text-primary-dark hover:bg-primary-dark hover:text-white",
 };
 
 const Button = ({
   to,
+  href, // link para fora do site
   children,
   variant = "primary", // valor padrão: se ninguém disser nada, é laranja
   type = "button", // padrão seguro: não envia formulário sem querer
@@ -30,6 +35,20 @@ const Button = ({
   // O "?? variants.primary" é uma rede de segurança: se alguém escrever
   // uma variante que não existe (ex.: "secundary"), usa a primary.
   const classes = `${base} ${variants[variant] ?? variants.primary} ${className}`;
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes}
+        {...rest}
+      >
+        {children}
+      </a>
+    );
+  }
 
   // Se veio "to", é navegação entre páginas: usamos o Link do React Router.
   // Link não tem "type" (não é um botão de verdade), por isso não passamos.
