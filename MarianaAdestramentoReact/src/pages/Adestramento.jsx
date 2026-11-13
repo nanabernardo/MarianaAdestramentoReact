@@ -6,6 +6,7 @@ import ResponsiveGallery from "../components/ResponsiveGallery";
 import SectionHeader from "../components/SectionHeader";
 import ServiceCard from "../components/ServiceCard";
 import { servicosAdestramento } from "../data/servicos";
+import CTASection from "../components/CTASection";
 
 const Adestramento = () => {
   const images = [
@@ -28,13 +29,14 @@ const Adestramento = () => {
             key={servico.titulo}
             as="h2"
             title={servico.titulo}
-            description={servico.descricao}            
+            description={servico.descricao}
           />
         ))}
       </div>
       <div className="mt-8">
         <ResponsiveGallery images={images} />
       </div>
+      <CTASection />
     </section>
   );
 };
