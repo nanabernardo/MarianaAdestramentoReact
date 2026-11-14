@@ -6,7 +6,8 @@ import { FaWhatsapp } from "react-icons/fa";
 import Button from "../components/Button";
 import ResponsiveGallery from "../components/ResponsiveGallery";
 import ServiceCard from "../components/ServiceCard";
-import { servicosAdestramento } from "../data/servicos";
+import SectionHeader from "../components/SectionHeader";
+import { gruposAdestramento } from "../data/servicos";
 import CTASection from "../components/CTASection";
 import { links } from "../data/contato";
 import { diferenciais } from "../data/diferenciais";
@@ -75,22 +76,38 @@ const Adestramento = () => {
         </ul>
       </section>
 
-      {/* =======Resto da página======= */}
+      {/* =======Serviços, em 2 grupos======= */}
       <section className="px-6 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-6 max-w-6xl mx-auto">
-          {/* um card para cada serviço da lista */}
-          {servicosAdestramento.map((servico) => (
-            <ServiceCard
-              key={servico.titulo}
-              as="h2"
-              title={servico.titulo}
-              description={servico.descricao}
-            />
+        <div className="max-w-6xl mx-auto flex flex-col gap-16">
+          {/* map de fora: um bloco para cada grupo */}
+          {gruposAdestramento.map((grupo) => (
+            <div key={grupo.titulo}>
+              {/* h2 (padrão do SectionHeader): o grupo fica abaixo do h1 da abertura */}
+              <SectionHeader
+                title={grupo.titulo}
+                subtitle={grupo.subtitulo}
+                className="mb-8"
+              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* map de dentro: um card para cada serviço DESTE grupo */}
+                {grupo.servicos.map((servico) => (
+                  <ServiceCard
+                    key={servico.titulo}
+                    title={servico.titulo}
+                    description={servico.descricao}
+                    icon={servico.icone}
+                  />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
-        <div className="mt-8">
-          <ResponsiveGallery images={images} />
-        </div>
+      </section>
+
+      {/* =======Resto da página======= */}
+      <section className="px-6 py-16">
+        <ResponsiveGallery images={images} />
+
         <CTASection />
       </section>
     </>

@@ -1,21 +1,30 @@
 // Card de um serviço: título + descrição.
-// O desenho fica aqui; os textos vêm de src/data/servicos.js
+// O desenho fica aqui; os textos e o ícone  vêm de src/data/servicos.js
 
 const ServiceCard = ({
   title,
   description,
+  icon: Icon,
   as = "h3", // nivel do título, quem usa escolhe
-  className = "w-full max-w-xs",
+  className = "",
 }) => {
   const Tag = as;
 
   return (
-    <div
-      className={`bg-secondary p-6 rounded-lg shadow-card text-center ${className}`}
+    // article: um bloco que faz sentido sozinho (como um card de serviço)
+    <article
+      className={`bg-lilac text-primary-dark p-6 rounded-2xl shadow-card flex flex-col gap-3 ${className}`}
     >
-      <Tag className="font-semibold text-white mb-2">{title}</Tag>
-      <p className="text-white text-sm text-justify">{description}</p>
-    </div>
+      {/* && : sem ícone, o quadrado laranja nem aparece */}
+      {Icon && (
+        <div className="size-12 rounded-xl bg-highlight flex items-center justify-center">
+          {/* sem classe de cor: o ícone usa a cor do texto (ink), que vem do article */}
+          <Icon size={24} aria-hidden="true" />
+        </div>
+      )}
+      <Tag className="font-display text-xl font-semibold">{title}</Tag>
+      <p className="leading-relaxed">{description}</p>
+    </article>
   );
 };
 
