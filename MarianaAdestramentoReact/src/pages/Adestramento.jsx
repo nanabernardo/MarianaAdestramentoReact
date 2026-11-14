@@ -9,6 +9,7 @@ import ServiceCard from "../components/ServiceCard";
 import { servicosAdestramento } from "../data/servicos";
 import CTASection from "../components/CTASection";
 import { links } from "../data/contato";
+import { diferenciais } from "../data/diferenciais";
 
 const Adestramento = () => {
   const images = [
@@ -57,8 +58,25 @@ const Adestramento = () => {
         </div>
       </section>
 
-      {/* Resto da página */}
-      <section className="px-6 pb-16">
+      {/* =======Diferenciais======== */}
+      <section className="bg-primary-dark px-6 py-8">
+        <ul className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          {diferenciais.map(({ texto, icone: Icone }) => (
+            <li key={texto} className="flex items-center gap-4 text-white">
+              {/* shrink-0: o ícone não amassa quando o texto quebra em duas linhas */}
+              <Icone
+                size={32}
+                aria-hidden="true"
+                className="shrink-0 text-highlight"
+              />
+              <span className="text-lg font-semibold">{texto}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* =======Resto da página======= */}
+      <section className="px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-6 max-w-6xl mx-auto">
           {/* um card para cada serviço da lista */}
           {servicosAdestramento.map((servico) => (
