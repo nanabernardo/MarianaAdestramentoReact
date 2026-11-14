@@ -4,19 +4,20 @@ import Tequila from "../assets/Tequila.jpg";
 import SRDBranca from "../assets/srd_branca2.jpg";
 import { FaWhatsapp } from "react-icons/fa";
 import Button from "../components/Button";
-import ResponsiveGallery from "../components/ResponsiveGallery";
+import ResponsiveImage from "../components/ResponsiveImage";
 import ServiceCard from "../components/ServiceCard";
 import SectionHeader from "../components/SectionHeader";
 import { gruposAdestramento } from "../data/servicos";
 import CTASection from "../components/CTASection";
 import { links } from "../data/contato";
+import { passosAdestramento } from "../data/passos";
 import { diferenciais } from "../data/diferenciais";
 
 const Adestramento = () => {
   const images = [
-    { src: Goldens, alt: "Goldens" },
-    { src: Tequila, alt: "Tequila" },
-    { src: SRDBranca, alt: "SRD Branca" },
+    { src: Goldens, alt: "Dois golden retrievers" },
+    { src: Tequila, alt: "Tequila, border collie" },
+    { src: SRDBranca, alt: "Cadela sem raça definida de pelo branco" },
   ];
   return (
     <>
@@ -104,11 +105,61 @@ const Adestramento = () => {
         </div>
       </section>
 
-      {/* =======Resto da página======= */}
-      <section className="px-6 py-16">
-        <ResponsiveGallery images={images} />
+      {/* =======Como funciona======= */}
+      {/* faixa escura de ponta a ponta, como a dos diferenciais */}
+      <section className="bg-primary-dark px-6 py-16">
+        <div className="max-w-6xl mx-auto">
+          {/* h2 (padrão): fica abaixo do h1 da abertura */}
+          <SectionHeader title="Como funciona" className="mb-10" />
 
-        <CTASection />
+          {/* ol: os passos têm ordem */}
+          <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* index: a posição do item da lista, começando com 0 */}
+            {passosAdestramento.map((passo, index) => (
+              <li
+                key={passo.titulo}
+                className="flex flex-col items-center text-center gap-3"
+              >
+                {/* aria-hidden: o leitor de tela já lê "1 de 4" por causa do ol;
+                sem ele, o númro seria lido duas vezes */}
+                <span
+                  aria-hidden="true"
+                  className="size-12 rounded-full bg-highlight text-ink font-display text-2xl font-bold flex items-center justify-center"
+                >
+                  {index + 1}
+                </span>
+                <h3 className="font-display text-xl font-semibold text-white">
+                  {passo.titulo}
+                </h3>
+                <p className="max-w-xs leading-relaxed text-white text-center">
+                  {passo.descricao}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* =======Alguns alunos + chamada final======= */}
+      <section className="px-6 py-16">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader title="Alguns alunos" className="mb-10" />
+
+          {/* celular: 1 coluna estreita (max-w-xs), para a foto em pé não ocupar a tela toda.
+              a partir de sm: 3 colunas, e o limite sai (sm:max-w-none) */}
+          <div className="max-w-xs mx-auto sm:max-w-none grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {images.map((image) => (
+              <ResponsiveImage
+                key={image.src}
+                src={image.src}
+                alt={image.alt}
+                aspect="3/4"
+                className="rounded-2xl shadow-card"
+              />
+            ))}
+          </div>
+          <CTASection />
+        </div>
       </section>
     </>
   );
