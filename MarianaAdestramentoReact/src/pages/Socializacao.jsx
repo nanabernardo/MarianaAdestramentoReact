@@ -6,6 +6,9 @@ import { FaWhatsapp } from "react-icons/fa";
 import ResponsiveGallery from "../components/ResponsiveGallery";
 import PageHero from "../components/PageHero";
 import Button from "../components/Button";
+import SectionHeader from "../components/SectionHeader";
+import ServiceCard from "../components/ServiceCard";
+import { sinaisSocializacao } from "../data/socializacao";
 import { links } from "../data/contato";
 
 const Socializacao = () => {
@@ -35,15 +38,41 @@ const Socializacao = () => {
         </Button>
       </PageHero>
 
+      {/* =======Sinais======= */}
+      {/* sem padding em cima: a abertura já termina com espaço (pb-16) */}
+      <section className="px-6 pb-16">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader
+            title="Seu cão precisa de ajuda?"
+            subtitle="Estes são os sinais mais comuns."
+            className="mb-10"
+          />
+
+          {/* 3 cards: 1 coluna no celular, 3 a partir de md
+              (3 colunas dividem bem 3 itens) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {sinaisSocializacao.map((sinal) => (
+              <ServiceCard
+                key={sinal.titulo}
+                title={sinal.titulo}
+                description={sinal.descricao}
+                icon={sinal.icone}
+              />
+            ))}
+          </div>
+
+          {/* alerta: laranja claro (hoverbtn) passa no contraste sobre o roxo;
+              o laranja forte (highlight) em texto pequeno reprovaria */}
+          <p className="mt-10 max-w-2xl mx-auto text-center text-lg font-semibold text-hoverbtn">
+            Sem a socialização correta, esse desconforto pode crescer e virar
+            angressividade
+          </p>
+        </div>
+      </section>
+
       {/* conteúdo antigo: sai aos poucos nas partes 12c-2 a 12c-4.
           o h1 antigo já saiu: o h1 da página agora está no PageHero */}
       <section className="p-6 text-center text-white">
-        <p className="text-white mb-6 text-center max-w-2xl mx-auto text-xl">
-          <b>Medo, ansiedade e reatividade</b> são sinais de que seu cão precisa
-          de ajuda para interagir com o mundo. A falta de socialização correta
-          pode levar a desconforto profundo e até mesmo a comportamentos
-          agressivos.
-        </p>
         <p className="text-white mb-6 text-center max-w-2xl mx-auto text-xl">
           A socialização vai muito além de apenas levar para passear ou expor o
           cachorro a estímulos. É um processo guiado e seguro que deve ser
