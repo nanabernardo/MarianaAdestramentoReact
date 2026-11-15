@@ -7,7 +7,7 @@ const PageHero = ({
   text,
   image,
   imageAlt,
-  ImageClassName = "object-center", // qual parte da foto aparece no recorte
+  imageClassName = "object-center", // qual parte da foto aparece no recorte
   children, // os botões: tudo que vier entre <PageHero e </PageHero/>
 }) => {
   return (
@@ -40,7 +40,7 @@ const PageHero = ({
           <img
             src={image}
             alt={imageAlt}
-            className={`w-full aspect-4/5 object-cover rounded-3xl shadow-card ${ImageClassName}`}
+            className={`w-full aspect-4/5 object-cover rounded-3xl shadow-card ${imageClassName}`}
           />
         </div>
       </div>

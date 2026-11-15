@@ -32,7 +32,7 @@ const Adestramento = () => {
               experiência divertida e estimulante."
         image={Cindy}
         imageAlt="Mariana abraçada com a Cindy, cadela de pelo cinza malhado"
-        ImageClassName="object-[center+40%]"
+        imageClassName="object-[center_40%]"
       >
         <Button to="/contato">Agendar avaliação</Button>
         <Button href={links.whatsapp} variant="outline">
