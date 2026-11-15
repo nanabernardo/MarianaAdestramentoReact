@@ -20,6 +20,6 @@ export const passosAdestramento = [
   {
     titulo: "Acompanhamento",
     descricao:
-      "Contato no dia a dia via whatsapp para comunicação além das aulas",
+      "Contato no dia a dia via WhatsApp para comunicação além das aulas",
   },
 ];
