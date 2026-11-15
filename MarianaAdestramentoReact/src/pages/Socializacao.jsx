@@ -26,6 +26,7 @@ const Socializacao = () => {
               outros animais de forma calma e confiante."
         image={Matilha}
         imageAlt="Quatro cães juntos no parque: um golden retriever deitado, uma cão de pelo branco e comprido, um border collie e um pug preto"
+        imageAspect="aspect-1/1"
       >
         <Button to="/contato">Agendar uma avaliação</Button>
         <Button href={links.whatsapp} variant="outline">
