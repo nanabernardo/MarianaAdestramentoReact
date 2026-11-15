@@ -13,6 +13,7 @@ import { links } from "../data/contato";
 import { passosAdestramento } from "../data/passos";
 import { diferenciais } from "../data/diferenciais";
 import PageHero from "../components/PageHero";
+import StepsList from "../components/StepsList";
 
 const Adestramento = () => {
   const images = [
@@ -92,31 +93,8 @@ const Adestramento = () => {
           {/* h2 (padrão): fica abaixo do h1 da abertura */}
           <SectionHeader title="Como funciona" className="mb-10" />
 
-          {/* ol: os passos têm ordem */}
-          <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* index: a posição do item da lista, começando com 0 */}
-            {passosAdestramento.map((passo, index) => (
-              <li
-                key={passo.titulo}
-                className="flex flex-col items-center text-center gap-3"
-              >
-                {/* aria-hidden: o leitor de tela já lê "1 de 4" por causa do ol;
-                sem ele, o númro seria lido duas vezes */}
-                <span
-                  aria-hidden="true"
-                  className="size-12 rounded-full bg-highlight text-ink font-display text-2xl font-bold flex items-center justify-center"
-                >
-                  {index + 1}
-                </span>
-                <h3 className="font-display text-xl font-semibold text-white">
-                  {passo.titulo}
-                </h3>
-                <p className="max-w-xs leading-relaxed text-white text-center">
-                  {passo.descricao}
-                </p>
-              </li>
-            ))}
-          </ol>
+          {/* 4 passos: usa as colunas padrão do StepsList (1, 2 e 4) */}
+          <StepsList steps={passosAdestramento} />
         </div>
       </section>
 
