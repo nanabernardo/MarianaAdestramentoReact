@@ -5,6 +5,9 @@ import PageHero from "../components/PageHero";
 import Button from "../components/Button";
 import { links } from "../data/contato";
 import { FaWhatsapp } from "react-icons/fa";
+import SectionHeader from "../components/SectionHeader";
+import ServiceCard from "../components/ServiceCard";
+import { destaquesConsulta } from "../data/consulta";
 
 const Consulta = () => {
   const images = [
@@ -29,14 +32,31 @@ const Consulta = () => {
         </Button>
       </PageHero>
 
+      {/* =======O que é a consulta======= */}
+      {/* sem padding em cima: a abertura já termina com espaço (pb-16) */}
+      <section className="px-6 pb-16">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader
+            title="O que é a consulta"
+            subtitle="Um olhar de perto para identificar e corrigir comportamentos que incomodam."
+            className="mb-10"
+          />
+
+          {/* 3 cards: 1 coluna no celular, 3 a partir de md */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {destaquesConsulta.map((destaque) => (
+              <ServiceCard
+                key={destaque.titulo}
+                title={destaque.titulo}
+                description={destaque.descricao}
+                icon={destaque.icone}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="p-6 text-center text-white">
-        <p className="text-white mb-6 text-center max-w-2xl mx-auto text-xl">
-          A consulta comportamental é feita através avaliação do comportamento
-          de um animal com o objetivo de identificar e corrigir comportamentos
-          problemáticos. De forma personalizada e voltada para a demanda que o
-          cliente traz, conversamos sobre os objetivos do trabalho, as
-          expectativas do cliente.
-        </p>
         <p className="text-white mb-6 text-center max-w-2xl mx-auto text-xl">
           São duas visitas, com um intervalo ideal de 15 dias. Nesse período,
           mantemos contato por whatsapp para sanar qualquer nova dúvida e melhor
