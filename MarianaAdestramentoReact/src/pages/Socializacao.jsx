@@ -3,19 +3,34 @@ import DoraBelaParque from "../assets/Dora_Bela_parque.jpg";
 import Matilha from "../assets/matilha_parque.jpg";
 import DoraBelaPp from "../assets/Dora_Bela_Pp.JPG";
 import { FaWhatsapp } from "react-icons/fa";
-import ResponsiveGallery from "../components/ResponsiveGallery";
+import { Check } from "lucide-react";
 import PageHero from "../components/PageHero";
 import Button from "../components/Button";
 import SectionHeader from "../components/SectionHeader";
 import ServiceCard from "../components/ServiceCard";
-import { sinaisSocializacao, areasSocializacao } from "../data/socializacao";
+import ResponsiveImage from "../components/ResponsiveImage";
+import CTASection from "../components/CTASection";
+import {
+  sinaisSocializacao,
+  areasSocializacao,
+  mudancasSocializacao,
+} from "../data/socializacao";
 import { links } from "../data/contato";
 
 const Socializacao = () => {
   const images = [
-    { src: Pp, alt: "Pp" },
-    { src: DoraBelaParque, alt: "Dora e Bela" },
-    { src: DoraBelaPp, alt: "Dora Bela Pp" },
+    {
+      src: Pp,
+      alt: "Cachorrinha pequena, pelo preto, num banco de concreto do parque",
+    },
+    {
+      src: DoraBelaParque,
+      alt: "Duas cachorras sem raça definida de pelo preto, porte grande, deitadas na grama, com a guia solta",
+    },
+    {
+      src: DoraBelaPp,
+      alt: "Três cachorras sem raça definida com pelo preto, duas de grande porte e uma de pequeno porte, sentadas na grama, ao lado de flores cor-de-rosa no parque",
+    },
   ];
   return (
     // fragmento: a página passa a ter várias sections, uma ao lado da outra
@@ -102,15 +117,52 @@ const Socializacao = () => {
         </div>
       </section>
 
-      {/* conteúdo antigo: o que sobrou (3º parágrafo e galeria) sai na 12c-4*/}
-      <section className="p-6 text-center text-white">      
-        <p className="text-white mb-6 text-center max-w-2xl mx-auto text-xl">
-          Meu objetivo é transformar a insegurança em bem estar duradouro,
-          garantindo que o seu cão se sinta seguro e confortável em qualquer
-          situação. Fortaleça o laço de confiança e desfrute de passeios e
-          encontros sociais tranquilos!
-        </p>
-        <ResponsiveGallery images={images} />
+      {/* =======O que muda======= */}
+      {/* pb-8: fica mais perto das fotos, que vêm logo depois */}
+      <section className="px-6 pt-16 pb-8">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader title="O que muda" className="mb-10" />
+
+          {/* 3 itens: 1 coluna no celular, 3 a partir de md */}
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* cada item é a própria frase: ela serve de key */}
+            {mudancasSocializacao.map((mudanca) => (
+              <li key={mudanca} className="flex items-center gap-4">
+                {/* shrink-0: o círculo não amassa quando a frase quebra em 2 linhas */}
+                <span className="shrink-0 size-10 rounded-full bg-highlight text-ink flex items-center justify-center">
+                  {/* strokeWidth={3}: traço mais grosso, o ✓ aparece melhor pequeno */}
+                  <Check size={22} strokeWidth={3} aria-hidden="true" />
+                </span>
+                <span className="text-lg font-semibold text-white">
+                  {mudanca}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* =======Em boa companhia + chamada final======= */}
+      <section className="px-6 pt-8 pb-16">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader title="Em boa companhia" className="mb-10" />
+
+          {/* celular: 1 coluna estreita (max-w-xs), como na Adestramento.
+              a partir de sm: 3 colunas, e o limite sai (sm:max-w-none) */}
+          <div className="max-w-xs mx-auto sm:max-w-none grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {images.map((image) => (
+              <ResponsiveImage
+                key={image.src}
+                src={image.src}
+                alt={image.alt}
+                aspect="1/1"
+                className="rounded-2xl shadow-card"
+              />
+            ))}
+          </div>
+
+          <CTASection />
+        </div>
       </section>
     </>
   );

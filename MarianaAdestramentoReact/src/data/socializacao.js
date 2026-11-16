@@ -37,3 +37,9 @@ export const areasSocializacao = [
   { texto: "Pessoas", icone: Users2 },
   { texto: "Outros animais", icone: PawPrint },
 ];
+
+export const mudancasSocializacao = [
+  "Mais segurança em qualquer situação",
+  "Um laço de confiança mais forte entre vocês",
+  "Passeios e encontros tranquilos",
+];
