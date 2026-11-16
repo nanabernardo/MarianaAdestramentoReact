@@ -1,6 +1,9 @@
 import LanduPiaf from "../assets/Landu_Piaf.jpg";
 import Schnauzer from "../assets/Schnauzer.jpg";
-import ResponsiveGallery from "../components/ResponsiveGallery";
+import Amora from "../assets/Amora.jpg";
+import Luke from "../assets/Luke_parque.jpg";
+import ResponsiveImage from "../components/ResponsiveImage";
+import CTASection from "../components/CTASection";
 import PageHero from "../components/PageHero";
 import Button from "../components/Button";
 import { links } from "../data/contato";
@@ -12,8 +15,18 @@ import { destaquesConsulta, passosConsulta } from "../data/consulta";
 
 const Consulta = () => {
   const images = [
-    { src: LanduPiaf, alt: "Landu e Piaf" },
-    { src: Schnauzer, alt: "Schnauzer" },
+    {
+      src: LanduPiaf,
+      alt: "Dois cães de pelo claro e orelhas caramelo sentados na grama, com guias azul e vermelha",
+    },
+    {
+      src: Amora,
+      alt: "Pastor alemão sentado na grama, olhando para cima com a língua de fora",
+    },
+    {
+      src: Luke,
+      alt: "Filhote de golden retriever sentado na terra, com guia vermelha, olhando para cima",
+    },
   ];
   return (
     <>
@@ -72,10 +85,28 @@ const Consulta = () => {
         </div>
       </section>
 
-      <section className="p-6 text-center text-white">
-        
+      {/* =======Alguns atendimentos + chamada final======= */}
+      <section className="px-6 py-16">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader title="Alguns atendimentos" className="mb-10" />
 
-        <ResponsiveGallery images={images} />
+          {/* celular: 1 coluna estreita (max-w-xs), como na Socialização.
+              a partir de sm: 3 colunas, e o limite sai (sm:max-w-none) */}
+          <div className="max-w-xs mx-auto sm:max-w-none grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {images.map((image) => (
+              <ResponsiveImage
+                key={image.src}
+                src={image.src}
+                alt={image.alt}
+                aspect="1/1"
+                className="rounded-2xl shadow-card"
+              />
+            ))}
+          </div>
+          
+          {/* chamada final: os textos padrão do CTASection servem aqui */}
+          <CTASection />
+        </div>
       </section>
     </>
   );
