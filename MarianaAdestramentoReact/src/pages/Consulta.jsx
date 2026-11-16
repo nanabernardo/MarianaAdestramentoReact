@@ -7,7 +7,8 @@ import { links } from "../data/contato";
 import { FaWhatsapp } from "react-icons/fa";
 import SectionHeader from "../components/SectionHeader";
 import ServiceCard from "../components/ServiceCard";
-import { destaquesConsulta } from "../data/consulta";
+import StepsList from "../components/StepsList";
+import { destaquesConsulta, passosConsulta } from "../data/consulta";
 
 const Consulta = () => {
   const images = [
@@ -56,12 +57,23 @@ const Consulta = () => {
         </div>
       </section>
 
+      {/* =======Como funciona======= */}
+      {/* faixa escura de ponta a ponta, como o "Como funciona" da Adestramento */}
+      <section className="bg-primary-dark px-6 py-16">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader
+            title="Como funciona"
+            subtitle="Duas visitas, com intervalo ideal de 15 dias."
+            className="mb-10"
+          />
+          {/* 3 passos: o padrão do StepsList é para 4 (2 e 4 colunas).
+              md:grid-cols-3 substitui o padrão inteiro: 1 coluna no celular, 3 a partir de md */}
+          <StepsList steps={passosConsulta} className="md:grid-cols-3" />
+        </div>
+      </section>
+
       <section className="p-6 text-center text-white">
-        <p className="text-white mb-6 text-center max-w-2xl mx-auto text-xl">
-          São duas visitas, com um intervalo ideal de 15 dias. Nesse período,
-          mantemos contato por whatsapp para sanar qualquer nova dúvida e melhor
-          orientar no processo de trabalho comportamental do seu melhor amigo.
-        </p>
+        
 
         <ResponsiveGallery images={images} />
       </section>

@@ -23,3 +23,21 @@ export const destaquesConsulta = [
       "Conversamos sobre os objetivos do trabalho e as suas expectativas.",
   },
 ];
+
+export const passosConsulta = [
+  {
+    titulo: "1ª visita",
+    descricao:
+      "Avaliação do seu cão e conversa sobre objetivos e expectativas. Oriento como proceder e você segue com o treinamento.",
+  },
+  {
+    titulo: "15 dias de apoio",
+    descricao:
+      "Contato pelo WhatsApp para tirar dúvidas novas e orientar o processo.",
+  },
+  {
+    titulo: "2ª visita",
+    descricao:
+      "Lapidamos o que já estava sendo feito e oriento em como proceder dali para frente.",
+  },
+];
