@@ -1,4 +1,12 @@
-import { Shield, Activity, Zap } from "lucide-react";
+import {
+  Shield,
+  Activity,
+  Zap,
+  MapPin,
+  Volume2,
+  Users2,
+  PawPrint,
+} from "lucide-react";
 
 // Textos da página Socialização.
 // "icone" guarda o componente do ícone, sem < /> (como em servicos.js).
@@ -21,4 +29,11 @@ export const sinaisSocializacao = [
     icone: Zap,
     descricao: "Late, avança ou puxa a guia quando vê outros cães ou pessoas.",
   },
+];
+
+export const areasSocializacao = [
+  { texto: "Novos ambientes", icone: MapPin },
+  { texto: "Sons", icone: Volume2 },
+  { texto: "Pessoas", icone: Users2 },
+  { texto: "Outros animais", icone: PawPrint },
 ];

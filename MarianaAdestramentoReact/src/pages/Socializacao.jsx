@@ -8,7 +8,7 @@ import PageHero from "../components/PageHero";
 import Button from "../components/Button";
 import SectionHeader from "../components/SectionHeader";
 import ServiceCard from "../components/ServiceCard";
-import { sinaisSocializacao } from "../data/socializacao";
+import { sinaisSocializacao, areasSocializacao } from "../data/socializacao";
 import { links } from "../data/contato";
 
 const Socializacao = () => {
@@ -65,27 +65,51 @@ const Socializacao = () => {
               o laranja forte (highlight) em texto pequeno reprovaria */}
           <p className="mt-10 max-w-2xl mx-auto text-center text-lg font-semibold text-hoverbtn">
             Sem a socialização correta, esse desconforto pode crescer e virar
-            angressividade
+            agressividade
           </p>
         </div>
       </section>
 
-      {/* conteúdo antigo: sai aos poucos nas partes 12c-2 a 12c-4.
-          o h1 antigo já saiu: o h1 da página agora está no PageHero */}
-      <section className="p-6 text-center text-white">
-        <p className="text-white mb-6 text-center max-w-2xl mx-auto text-xl">
-          A socialização vai muito além de apenas levar para passear ou expor o
-          cachorro a estímulos. É um processo guiado e seguro que deve ser
-          realizado de forma intencional. Preparo seu cão para lidar com novos
-          ambientes, sons, pessoas e outros animais de forma calma e confiante.
-        </p>
+      {/* =======O que trabalhamos======= */}
+      {/* faixa escura de ponta a ponta, como o "Como funciona" da Adestramento */}
+      <section className="bg-primary-dark px-6 py-16">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader
+            title="O que trabalhamos"
+            subtitle="Um processo guiado, seguro e intencional. Muito além de só levar para passear."
+            className="mb-10"
+          />
+
+          {/* 4 itens: 2 colunas no celular e 4 a partir de md (as duas dividem 4) */}
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {areasSocializacao.map(({ texto, icone: Icone }) => (
+              <li
+                key={texto}
+                className="flex flex-col items-center gap-3 text-center"
+              >
+                {/* círculo laranja: mesmo desenho dos números do StepsList.
+                    text-ink: o ícone herda a cor do círculo (contraste 7,6:1) */}
+                <span className="size-16 rounded-full bg-highlight text-ink flex items-center justify-center">
+                  {/* aria-hidden: o texto embaixo já diz tudo; o ícone é enfeite */}
+                  <Icone size={32} aria-hidden="true" />
+                </span>
+                <span className="font-display text-lg font-semibold text-white">
+                  {texto}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* conteúdo antigo: o que sobrou (3º parágrafo e galeria) sai na 12c-4*/}
+      <section className="p-6 text-center text-white">      
         <p className="text-white mb-6 text-center max-w-2xl mx-auto text-xl">
           Meu objetivo é transformar a insegurança em bem estar duradouro,
           garantindo que o seu cão se sinta seguro e confortável em qualquer
           situação. Fortaleça o laço de confiança e desfrute de passeios e
           encontros sociais tranquilos!
         </p>
-
         <ResponsiveGallery images={images} />
       </section>
     </>
