@@ -24,7 +24,7 @@ const variants = {
 
 const Button = ({
   to,
-  href, // link para fora do site
+  href, // link para fora do site ou âncora na mesma página (#id)
   children,
   variant = "primary", // valor padrão: se ninguém disser nada, é laranja
   type = "button", // padrão seguro: não envia formulário sem querer
@@ -37,11 +37,19 @@ const Button = ({
   const classes = `${base} ${variants[variant] ?? variants.primary} ${className}`;
 
   if (href) {
+    // Âncora = endereço que começa com "#": leva a uma parte DESTA página
+    // (ex.: "#planos" procura o elemento com id="planos").
+    // Todo o resto (WhatsApp, Instagram...) é site de fora.
+    const isAnchor = href.startsWith("#");
+
     return (
       <a
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+        // undefined = o React nem escreve o atributo no HTML.
+        // Âncora: fica na mesma aba. Site de fora: abre aba nova,
+        // com rel por segurança (a outra aba não controla a nossa).
+        target={isAnchor ? undefined : "_blank"}
+        rel={isAnchor ? undefined : "noopener noreferrer"}
         className={classes}
         {...rest}
       >
