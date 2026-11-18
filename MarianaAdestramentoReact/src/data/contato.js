@@ -10,3 +10,10 @@ export const links = {
   facebook: "https://www.facebook.com/marianabernardo.adestradora",
   instagram: "https://www.instagram.com/mariana.adestradora/",
 };
+
+// Link do WhatsApp com uma mensagem já escrita.
+// Recebe o texto e devolve o endereço pronto para um href.
+// encodeURIComponent troca espaços, acentos e sinais por códigos que
+// cabem num endereço (espaço vira %20, "ã" vira %C3%A3...).
+export const linkWhatsapp = (mensagem) =>
+  `https://wa.me/${whatsappNumero}?text=${encodeURIComponent(mensagem)}`;

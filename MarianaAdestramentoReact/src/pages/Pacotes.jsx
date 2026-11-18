@@ -6,9 +6,10 @@ import ResponsiveGallery from "../components/ResponsiveGallery";
 import PageHero from "../components/PageHero";
 import Button from "../components/Button";
 import SectionHeader from "../components/SectionHeader";
-import { links } from "../data/contato";
+import { links, linkWhatsapp } from "../data/contato";
 import { pacotes } from "../data/pacotes";
 import { FaWhatsapp } from "react-icons/fa";
+import { MapPin } from "lucide-react";
 
 const Pacotes = () => {
   const images = [
@@ -52,27 +53,54 @@ const Pacotes = () => {
           />
           {/* 3 pacotes: 1 coluna no celular, 3 a partir de md */}
           <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {pacotes.map((pacote) => (
-              <li
-                key={pacote.aulasPorMes}
-                className="bg-lilac text-primary-dark p-8 rounded-2xl shadow-card flex flex-col items-center gap-3 text-center"
-              >
-                {/* um título só: o leitor de tela lê "4 aulas por mês" junto */}
-                <h3 className="flex flex-col items-center font-display font-semibols">
-                  <span className="text-6xl font-bold leading-none">
-                    {pacote.aulasPorMes}
-                  </span>
-                  <span className="text-xl">aulas por mês</span>
-                </h3>
+            {pacotes.map((pacote) => {
+              // Chaves no lugar de parênteses: antes de desenhar, calculamos
+              // duas coisas. Por isso precisa do "return" lá embaixo.
+              const aulas = pacote.aulasPorSemana === 1 ? "aula" : "aulas";
+              const mensagem = `Olá, Mariana! Tenho interesse no pacote de ${pacote.aulasPorMes} aulas por mês (${pacote.aulasPorSemana} ${aulas} por semana). Pode me passar o valor para minha região?`;
 
-                {/* etiqueta laranja; 1 = "aula", o resto = "aulas" */}
-                <p className="rounded-full bg-highlight text-ink text-sm font-bold px-4 py-1">
-                  {pacote.aulasPorSemana}{" "}
-                  {pacote.aulasPorSemana === 1 ? "aula" : "aulas"} por semana
-                </p>
-              </li>
-            ))}
+              return (
+                <li
+                  key={pacote.aulasPorMes}
+                  className="bg-lilac text-primary-dark p-8 rounded-2xl shadow-card flex flex-col items-center gap-3 text-center"
+                >
+                  {/* um título só: o leitor de tela lê "4 aulas por mês" junto */}
+                  <h3 className="flex flex-col items-center font-display font-semibols">
+                    <span className="text-6xl font-bold leading-none">
+                      {pacote.aulasPorMes}
+                    </span>
+                    <span className="text-xl">aulas por mês</span>
+                  </h3>
+
+                  {/* etiqueta laranja; 1 = "aula", o resto = "aulas" */}
+                  <p className="rounded-full bg-highlight text-ink text-sm font-bold px-4 py-1">
+                    {pacote.aulasPorSemana}{" "}
+                    {pacote.aulasPorSemana === 1 ? "aula" : "aulas"} por semana
+                  </p>
+
+                  {/* os 3 botões têm o mesmo texto visível; o aria-label diz
+                      ao leitor de tela qual pacote cada um escolhe */}
+                  <Button
+                    href={linkWhatsapp(mensagem)}
+                    variant="outlineDark"
+                    className="mt-3"
+                    aria-label={`Quero o pacote de ${pacote.aulasPorMes} aulas por mês, pelo WhatsApp`}
+                  >
+                    <FaWhatsapp aria-hidden="true" />
+                    Quero este pacote
+                  </Button>
+                </li>
+              );
+            })}
           </ul>
+
+          {/* ícone e texto lado a lado; shrink-0 impede o ícone de achatar
+              quando a frase quebra em duas linhas no celular */}
+          <p className="mt-10 flex items-center justify-center gp-2 text-lg text-hoverbtn text-center">
+            <MapPin aria-hidden="true" className="shrink-0" />
+            Os valores variam conforme a região. Peça o seu orçamento pelo
+            WhatsApp.
+          </p>
         </div>
       </section>
 
