@@ -5,7 +5,9 @@ import EuBlack from "../assets/Eu_Black.jpeg";
 import ResponsiveGallery from "../components/ResponsiveGallery";
 import PageHero from "../components/PageHero";
 import Button from "../components/Button";
+import SectionHeader from "../components/SectionHeader";
 import { links } from "../data/contato";
+import { pacotes } from "../data/pacotes";
 import { FaWhatsapp } from "react-icons/fa";
 
 const Pacotes = () => {
@@ -36,37 +38,46 @@ const Pacotes = () => {
         </Button>
       </PageHero>
 
-      {/* conteúdo antigo: a tabela sai na 13-3 e a galeria na 13-5 */}
-      <div className="p-6">
-        {/* id temporário aqui: na 13-3 ele vai para a seção dos cards */}
-        <div id="planos">
-          <table className="text-white border border-secondary border-collapse w-full max-w-[720px] mx-auto">
-            <thead>
-              <tr className="bg-secondary text-center">
-                <th scope="col" className="p-2">
-                  Quantidade de aulas por mês
-                </th>
-                <th scope="col" className="p-2">
-                  Aulas na semana
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-secondary">
-              <tr className="text-center">
-                <td className="p-2 border border-secondary">4 aulas</td>
-                <td className="p-2 border border-secondary">1 aula</td>
-              </tr>
-              <tr className="text-center">
-                <td className="p-2 border border-secondary">8 aulas</td>
-                <td className="p-2 border border-secondary">2 aulas</td>
-              </tr>
-              <tr className="text-center">
-                <td className="p-2 border border-secondary">12 aulas</td>
-                <td className="p-2 border border-secondary">3 aulas</td>
-              </tr>
-            </tbody>
-          </table>
+      {/* =======Escolha a frequência======= */}
+      {/* id="planos": destino do botão "Ver os pacotes" (âncora).
+          lg:scroll-mt-40: no computador a barra fica fixa no topo e cobriria
+          o título; a rolagem para 10rem (160px) antes. No celular a barra
+          rola junto, então não precisa. */}
+      <section id="planos" className="px-6 pb-16 lg:scroll-mt-40">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader
+            title="Escolha a frequência"
+            subtitle="Quantas aulas por semana combinam com vocês?"
+            className="mb-10"
+          />
+          {/* 3 pacotes: 1 coluna no celular, 3 a partir de md */}
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {pacotes.map((pacote) => (
+              <li
+                key={pacote.aulasPorMes}
+                className="bg-lilac text-primary-dark p-8 rounded-2xl shadow-card flex flex-col items-center gap-3 text-center"
+              >
+                {/* um título só: o leitor de tela lê "4 aulas por mês" junto */}
+                <h3 className="flex flex-col items-center font-display font-semibols">
+                  <span className="text-6xl font-bold leading-none">
+                    {pacote.aulasPorMes}
+                  </span>
+                  <span className="text-xl">aulas por mês</span>
+                </h3>
+
+                {/* etiqueta laranja; 1 = "aula", o resto = "aulas" */}
+                <p className="rounded-full bg-highlight text-ink text-sm font-bold px-4 py-1">
+                  {pacote.aulasPorSemana}{" "}
+                  {pacote.aulasPorSemana === 1 ? "aula" : "aulas"} por semana
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
+      </section>
+
+      {/* conteúdo antigo: a galeria sai na 13-5 */}
+      <div className="p-6">
         <div className="mt-8">
           <ResponsiveGallery images={images} />
         </div>
