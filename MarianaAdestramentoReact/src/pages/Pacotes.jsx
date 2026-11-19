@@ -1,21 +1,29 @@
 import Wendy from "../assets/Wendy.jpg";
-import Maya from "../assets/Maya.jpeg";
+import JackBebe from "../assets/Jack_bebe.jpg";
 import Barto from "../assets/Barto.jpg";
 import EuBlack from "../assets/Eu_Black.jpeg";
-import ResponsiveGallery from "../components/ResponsiveGallery";
 import PageHero from "../components/PageHero";
 import Button from "../components/Button";
 import SectionHeader from "../components/SectionHeader";
+import StepsList from "../components/StepsList";
+import ResponsiveImage from "../components/ResponsiveImage";
+import CTASection from "../components/CTASection";
 import { links, linkWhatsapp } from "../data/contato";
-import { pacotes } from "../data/pacotes";
+import { pacotes, passosPacotes } from "../data/pacotes";
 import { FaWhatsapp } from "react-icons/fa";
 import { MapPin } from "lucide-react";
 
 const Pacotes = () => {
   const images = [
-    { src: Wendy, alt: "Wendy" },
-    { src: Maya, alt: "Maya" },
-    { src: Barto, alt: "Barto" },
+    {
+      src: Wendy,
+      alt: "Border collie merle deitado na grama, com guia vermelha",
+    },
+    {
+      src: JackBebe,
+      alt: "Filhote de pelo branco e caramelo sentado num tapete listrado, olhando para cima",
+    },
+    { src: Barto, alt: "Cão de pelo cinza sentado, sorrindo, com guia rosa" },
   ];
 
   return (
@@ -52,7 +60,7 @@ const Pacotes = () => {
             className="mb-10"
           />
           {/* 3 pacotes: 1 coluna no celular, 3 a partir de md */}
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
             {pacotes.map((pacote) => {
               // Chaves no lugar de parênteses: antes de desenhar, calculamos
               // duas coisas. Por isso precisa do "return" lá embaixo.
@@ -62,11 +70,11 @@ const Pacotes = () => {
               return (
                 <li
                   key={pacote.aulasPorMes}
-                  className="bg-lilac text-primary-dark p-8 rounded-2xl shadow-card flex flex-col items-center gap-3 text-center"
+                  className="bg-lilac text-primary-dark p-6 md:p-8 rounded-2xl shadow-card flex flex-col items-center gap-2 md:gap-3 text-center"
                 >
                   {/* um título só: o leitor de tela lê "4 aulas por mês" junto */}
-                  <h3 className="flex flex-col items-center font-display font-semibols">
-                    <span className="text-6xl font-bold leading-none">
+                  <h3 className="flex flex-col items-center font-display font-semibold">
+                    <span className="text-5xl md:text-6xl font-bold leading-none">
                       {pacote.aulasPorMes}
                     </span>
                     <span className="text-xl">aulas por mês</span>
@@ -83,7 +91,7 @@ const Pacotes = () => {
                   <Button
                     href={linkWhatsapp(mensagem)}
                     variant="outlineDark"
-                    className="mt-3"
+                    className="mt-2 md:mt-3"
                     aria-label={`Quero o pacote de ${pacote.aulasPorMes} aulas por mês, pelo WhatsApp`}
                   >
                     <FaWhatsapp aria-hidden="true" />
@@ -96,7 +104,7 @@ const Pacotes = () => {
 
           {/* ícone e texto lado a lado; shrink-0 impede o ícone de achatar
               quando a frase quebra em duas linhas no celular */}
-          <p className="mt-10 flex items-center justify-center gp-2 text-lg text-hoverbtn text-center">
+          <p className="mt-10 flex items-center justify-center gap-2 text-lg text-hoverbtn text-center">
             <MapPin aria-hidden="true" className="shrink-0" />
             Os valores variam conforme a região. Peça o seu orçamento pelo
             WhatsApp.
@@ -104,12 +112,42 @@ const Pacotes = () => {
         </div>
       </section>
 
-      {/* conteúdo antigo: a galeria sai na 13-5 */}
-      <div className="p-6">
-        <div className="mt-8">
-          <ResponsiveGallery images={images} />
+      {/* =======Como montar o seu pacote======= */}
+      {/* faixa escura de ponta a ponta, como o "Como funciona" das outras páginas */}
+      <section className="bg-primary-dark px-6 py-16">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader
+            title="Como montar o seu pacote"
+            subtitle="Três passos, sem complicações."
+            className="mb-10"
+          />
+          {/* 3 passos: md:grid-cols-3 substitui o padrão do StepsList (feito para 4) */}
+          <StepsList steps={passosPacotes} className="md:grid-cols-3" />
         </div>
-      </div>
+      </section>
+
+      {/* =======Alguns alunos + chamada final======= */}
+      <section className="px-6 py-16">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader title="Alguns alunos" className="mb-10" />
+
+          {/* celular: 1 coluna estreita; a partir de sm: 3 colunas, sem o limite */}
+          <div className="max-w-xs mx-auto sm:max-w-none grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {images.map((image) => (
+              <ResponsiveImage
+                key={image.src}
+                src={image.src}
+                alt={image.alt}
+                aspect="1/1"
+                className="rounded-2xl shadow-card"
+              />
+            ))}
+          </div>
+
+          {/* só o text muda: o title padrão ("Vamos conversar?") continua */}
+          <CTASection text="Conte um pouco sobre o seu cão e eu te ajudo a escolher o melhor pacote." />
+        </div>
+      </section>
     </>
   );
 };
