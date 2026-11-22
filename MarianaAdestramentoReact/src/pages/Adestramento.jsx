@@ -4,7 +4,7 @@ import Tequila from "../assets/Tequila.jpg";
 import SRDBranca from "../assets/srd_branca2.jpg";
 import { FaWhatsapp } from "react-icons/fa";
 import Button from "../components/Button";
-import ResponsiveImage from "../components/ResponsiveImage";
+import PhotoGallery from "../components/PhotoGallery";
 import ServiceCard from "../components/ServiceCard";
 import SectionHeader from "../components/SectionHeader";
 import { gruposAdestramento } from "../data/servicos";
@@ -103,19 +103,10 @@ const Adestramento = () => {
         <div className="max-w-6xl mx-auto">
           <SectionHeader title="Alguns alunos" className="mb-10" />
 
-          {/* celular: 1 coluna estreita (max-w-xs), para a foto em pé não ocupar a tela toda.
-              a partir de sm: 3 colunas, e o limite sai (sm:max-w-none) */}
-          <div className="max-w-xs mx-auto sm:max-w-none grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {images.map((image) => (
-              <ResponsiveImage
-                key={image.src}
-                src={image.src}
-                alt={image.alt}
-                aspect="3/4"
-                className="rounded-2xl shadow-card"
-              />
-            ))}
-          </div>
+          {/* fotos em pé (3/4); a grade padrão do PhotoGallery já é a mesma de antes */}
+
+          <PhotoGallery photos={images} aspect="3/4" />
+
           <CTASection />
         </div>
       </section>
