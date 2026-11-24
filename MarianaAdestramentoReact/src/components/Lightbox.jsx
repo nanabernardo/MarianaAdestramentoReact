@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 // O Lightbox continua sem estado: recebe a foto, a posição (index) e o total,
@@ -35,6 +35,28 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
       onPrev(); // arrastou para a direita
     }
   };
+
+  // teclado: Esc fecha, <- volta, -> avança
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      } else if (e.key === "ArrowLeft" && total > 1) {
+        onPrev();
+      } else if (e.key === "ArrowRight" && total > 1) {
+        onNext();
+      }
+    };
+
+    // no documento, e não no div: o teclado só "fala" com quem está em foco,
+    // e o foco ainda não está dentro do lightbox (isso é a 14-3b)
+    document.addEventListener("keydown", handleKeyDown);
+
+    // limpeza: roda antes do efeito rodar de novo e quando o Lightbox sai da tela
+    return () => document.removeEventListener("keydown", handleKeyDown);
+
+    // as funções vêm do pai: quando ele cria funções novas, o efeito liga o ouvinte denovo, com elas
+  }, [onClose, onPrev, onNext, total]);
 
   return (
     // fundo escuro: clicar nele fecha
