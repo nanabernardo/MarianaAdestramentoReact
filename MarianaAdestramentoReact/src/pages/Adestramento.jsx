@@ -1,7 +1,7 @@
-import Cindy from "../assets/Eu_Cindy.JPG";
-import Goldens from "../assets/Goldens.jpg";
-import Tequila from "../assets/Tequila.jpg";
-import SRDBranca from "../assets/srd_branca2.jpg";
+import Cindy from "../assets/Eu_Cindy.webp";
+import Goldens from "../assets/Goldens.webp";
+import Tequila from "../assets/Tequila.webp";
+import SRDBranca from "../assets/srd_branca2.webp";
 import { FaWhatsapp } from "react-icons/fa";
 import Button from "../components/Button";
 import PhotoGallery from "../components/PhotoGallery";

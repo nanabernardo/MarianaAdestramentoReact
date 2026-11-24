@@ -1,6 +1,6 @@
 import ResponsiveImage from "../components/ResponsiveImage";
-import BelaDora from "../assets/Bela_Dora_2011.jpg";
-import LukePortao from "../assets/IMG-20230725-WA0006.jpg";
+import BelaDora from "../assets/Bela_Dora_2011.webp";
+import LukePortao from "../assets/IMG-20230725-WA0006.webp";
 
 const Home = () => {
   return (

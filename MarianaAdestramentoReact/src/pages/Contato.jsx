@@ -2,7 +2,7 @@ import Button from "../components/Button";
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import SocialMediaIcons from "../components/SocialMediaIcons";
-import CaoEmail from "../assets/caoEmail.png";
+import CaoEmail from "../assets/caoEmail.webp";
 
 const Contato = () => {
   const [formData, setFormData] = useState({

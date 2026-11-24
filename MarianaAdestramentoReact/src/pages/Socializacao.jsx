@@ -1,7 +1,7 @@
-import Pp from "../assets/Pp.jpg";
-import DoraBelaParque from "../assets/Dora_Bela_parque.jpg";
-import Matilha from "../assets/matilha_parque.jpg";
-import DoraBelaPp from "../assets/Dora_Bela_Pp.JPG";
+import Pp from "../assets/Pp.webp";
+import DoraBelaParque from "../assets/Dora_Bela_parque.webp";
+import Matilha from "../assets/matilha_parque.webp";
+import DoraBelaPp from "../assets/Dora_Bela_Pp.webp";
 import { FaWhatsapp } from "react-icons/fa";
 import { Check } from "lucide-react";
 import PageHero from "../components/PageHero";
