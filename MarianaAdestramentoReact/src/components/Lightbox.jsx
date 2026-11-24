@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 // O Lightbox continua sem estado: recebe a foto, a posição (index) e o total,
@@ -8,6 +9,33 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
   const roundButton =
     "absolute rounded-full bg-black/80 p-2 text-white hover:bg-black focus-visible:outline-4 focus-visible:outline-highlight";
 
+  // gaveta para guardar onde o dedo encostou (não aparece na tela, por isso useRef e não useState)
+  const touchStartX = useRef(null);
+
+  // distância mínima, em pixels, para contar como arrastar (abaixo disso é só um toque)
+  const SWIPE_MIN = 50;
+
+  // dedo encostou: guarda a posição horizontal (x) do primeiro dedo
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  // dedo saiu: compara com o começo e decide o lado
+  const handleTouchEnd = (e) => {
+    //sem começo guardado, ou com uma foto só, não há o que fazer
+    if (touchStartX.current === null || total < 2) return;
+
+    // changedTouches: o dedo que acabou de sair (touches já está vazio aqui)
+    const distance = e.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null; // esvazia a gaveta para o próximo toque
+
+    if (distance < -SWIPE_MIN) {
+      onNext(); // arrastou para a esquerda
+    } else if (distance > SWIPE_MIN) {
+      onPrev(); // arrastou para a direita
+    }
+  };
+
   return (
     // fundo escuro: clicar nele fecha
     <div
@@ -16,6 +44,8 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
       aria-label="Foto ampliada"
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
       onClick={onClose}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       {/* conteúdo: o stopPropagation impede que o clique na foto "suba" até o fundo e feche */}
       <div className="relative" onClick={(e) => e.stopPropagation()}>
@@ -23,7 +53,7 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
           type="button"
           onClick={onClose}
           aria-label="Fechar foto ampliada"
-          className={`${roundButton}top-3 right-3`}
+          className={`${roundButton} top-3 right-3`}
         >
           <X size={20} aria-hidden="true" />
         </button>
@@ -42,7 +72,7 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
         <img
           src={photo.src}
           alt={photo.alt}
-          className="max-w-[90vw] md:max-w-[calc(100vw_-_7rem)] max-h-[90vh] rounded-lg object-contain shadow-lg"
+          className="max-w-[90vw] md:max-w-[calc(100vw_-_10rem)] max-h-[90vh] rounded-lg object-contain shadow-lg"
         />
       </div>
 
@@ -56,7 +86,7 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
               onPrev();
             }}
             aria-label="Foto anterior"
-            className={`${roundButton} left-2 md:left-6 top-1/2 -translate-y-1/2`}
+            className={`${roundButton} left-2 md:left-6 top-1/2 -translate-y-1/2 max-md:sr-only`}
           >
             <ChevronLeft size={24} aria-hidden="true" />
           </button>
@@ -68,7 +98,7 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
               onNext();
             }}
             aria-label="Próxima foto"
-            className={`${roundButton} right-2 md:right-6 top-1/2 -translate-y-1/2`}
+            className={`${roundButton} right-2 md:right-6 top-1/2 -translate-y-1/2 max-md:sr-only`}
           >
             <ChevronRight size={24} aria-hidden="true" />
           </button>
