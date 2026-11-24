@@ -14,6 +14,14 @@ const PhotoGallery = ({
   // null = fechado; 0, 1, 2… = posição da foto aberta na lista
   const [openIndex, setOpenIndex] = useState(null);
 
+  // quantas fotos a lista tem (vem dos dados, nunca um número fixo)
+  const total = photos.length;
+
+  // próxima: soma 1, e o % faz a última voltar para a primeira
+  const showNext = () => setOpenIndex((openIndex + 1) % total);
+
+  // anterior: subtrai 1; somar o total ANTES do % evita número negativo
+  const showPrev = () => setOpenIndex((openIndex - 1 + total) % total);
 
   return (
     <>
@@ -45,6 +53,10 @@ const PhotoGallery = ({
       {openIndex !== null && (
         <Lightbox
           photo={photos[openIndex]}
+          index={openIndex}
+          total={total}
+          onPrev={showPrev}
+          onNext={showNext}
           onClose={() => setOpenIndex(null)}
         />
       )}
