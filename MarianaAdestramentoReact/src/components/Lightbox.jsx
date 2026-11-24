@@ -12,6 +12,9 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
   // gaveta para guardar onde o dedo encostou (não aparece na tela, por isso useRef e não useState)
   const touchStartX = useRef(null);
 
+  // "gancho" para o botão X: o React coloca o botão qui depois de desenhar
+  const closeButtonRef = useRef(null);
+
   // distância mínima, em pixels, para contar como arrastar (abaixo disso é só um toque)
   const SWIPE_MIN = 50;
 
@@ -58,6 +61,20 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
     // as funções vêm do pai: quando ele cria funções novas, o efeito liga o ouvinte denovo, com elas
   }, [onClose, onPrev, onNext, total]);
 
+  // foco: ao abrir, vai para o X; ao fechar, volta para quem abriu
+  useEffect(() => {
+    //quem estava com o foco antes de abrir: a miniatura clicada
+    const previous = document.activeElement;
+
+    // leva o foco para dentro do lightbox
+    closeButtonRef.current.focus();
+
+    // limpeza: roda quando o Lightbox sai da tela (ao fechar)
+    return () => previous?.focus();
+
+    // [] de propósito: só ao abrir e ao fechar, não a cada troca de foto
+  }, []);
+
   return (
     // fundo escuro: clicar nele fecha
     <div
@@ -72,6 +89,7 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
       {/* conteúdo: o stopPropagation impede que o clique na foto "suba" até o fundo e feche */}
       <div className="relative" onClick={(e) => e.stopPropagation()}>
         <button
+        ref={closeButtonRef}
           type="button"
           onClick={onClose}
           aria-label="Fechar foto ampliada"
