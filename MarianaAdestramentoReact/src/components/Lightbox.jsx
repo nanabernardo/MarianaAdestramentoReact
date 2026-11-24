@@ -75,6 +75,30 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
     // [] de propósito: só ao abrir e ao fechar, não a cada troca de foto
   }, []);
 
+  // página de trás parada enquanto o lightbox está aberto
+  useEffect(() => {
+    const { body } = document;
+
+    // guarda como estava, para devolver igual ao fechar
+    const previousOverflow = body.style.overflow;
+    const previousPadding = body.style.paddingRight;
+
+    // largura da barra de rolagem = janela inteira - área sem barra
+    // (no celular costuma das 0, porque a barra fica por cima do conteúdo)
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+
+    // trava a rolagem; o espço no lugar da barra evita o "pulo" para a direita
+    body.style.overflow = "hidden";
+    body.style.paddingRight = `${scrollbarWidth}px`;
+
+    // limpeza: ao fechar, devolve os valores anteriores
+    return () => {
+      body.style.overflow = previousOverflow;
+      body.style.paddingRight = previousPadding;
+    };
+  }, []);
+
   return (
     // fundo escuro: clicar nele fecha
     <div
@@ -89,7 +113,7 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
       {/* conteúdo: o stopPropagation impede que o clique na foto "suba" até o fundo e feche */}
       <div className="relative" onClick={(e) => e.stopPropagation()}>
         <button
-        ref={closeButtonRef}
+          ref={closeButtonRef}
           type="button"
           onClick={onClose}
           aria-label="Fechar foto ampliada"
