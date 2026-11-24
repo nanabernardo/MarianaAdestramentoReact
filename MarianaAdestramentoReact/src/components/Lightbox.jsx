@@ -12,8 +12,11 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
   // gaveta para guardar onde o dedo encostou (não aparece na tela, por isso useRef e não useState)
   const touchStartX = useRef(null);
 
-  // "gancho" para o botão X: o React coloca o botão qui depois de desenhar
+  // "gancho" para o botão X: o React coloca o botão depois de desenhar
   const closeButtonRef = useRef(null);
+
+  // "gancho" para a caixa do lightbox: é nela que procuramos os botões
+  const dialogRef = useRef(null);
 
   // distância mínima, em pixels, para contar como arrastar (abaixo disso é só um toque)
   const SWIPE_MIN = 50;
@@ -51,14 +54,13 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
       }
     };
 
-    // no documento, e não no div: o teclado só "fala" com quem está em foco,
-    // e o foco ainda não está dentro do lightbox (isso é a 14-3b)
+    // no documento, e não no div: o teclado só "fala" com quem está em foco   
     document.addEventListener("keydown", handleKeyDown);
 
     // limpeza: roda antes do efeito rodar de novo e quando o Lightbox sai da tela
     return () => document.removeEventListener("keydown", handleKeyDown);
 
-    // as funções vêm do pai: quando ele cria funções novas, o efeito liga o ouvinte denovo, com elas
+    // as funções vêm do pai: quando ele cria funções novas, o efeito liga o ouvinte de novo, com elas
   }, [onClose, onPrev, onNext, total]);
 
   // foco: ao abrir, vai para o X; ao fechar, volta para quem abriu
@@ -84,11 +86,11 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
     const previousPadding = body.style.paddingRight;
 
     // largura da barra de rolagem = janela inteira - área sem barra
-    // (no celular costuma das 0, porque a barra fica por cima do conteúdo)
+    // (no celular costuma dar 0, porque a barra fica por cima do conteúdo)
     const scrollbarWidth =
       window.innerWidth - document.documentElement.clientWidth;
 
-    // trava a rolagem; o espço no lugar da barra evita o "pulo" para a direita
+    // trava a rolagem; o espaço no lugar da barra evita o "pulo" para a direita
     body.style.overflow = "hidden";
     body.style.paddingRight = `${scrollbarWidth}px`;
 
@@ -97,6 +99,36 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
       body.style.overflow = previousOverflow;
       body.style.paddingRight = previousPadding;
     };
+  }, []);
+
+  // foco preso: o Tab dá a volta dentro do lightbox
+  useEffect(() => {
+    const handleTab = (e) => {
+      if (e.key !== "Tab") return; // só nos interessa o Tab
+
+      // os botões do lightbox, na ordem em que aparecem no código: X, anterior, próxima
+      const buttons = dialogRef.current.querySelectorAll("button");
+      const first = buttons[0];
+      const last = buttons[buttons.length - 1];
+      const current = document.activeElement;
+
+      if (!dialogRef.current.contains(current)) {
+        e.preventDefault(); // o foco escapou (clique no fundo): traz de volta
+        first.focus();
+      } else if (e.shiftKey && current === first) {
+        e.preventDefault(); // Shift+Tab no primeiro: vai para o último
+        last.focus();
+      } else if (!e.shiftKey && current === last) {
+        e.preventDefault(); // Tab no último: volta para o primeiro
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleTab);
+    return () => {
+      document.removeEventListener("keydown", handleTab);
+    };
+    // [] de propósito: o efeito só usa ref, que é sempre a mesma
   }, []);
 
   return (
@@ -109,6 +141,7 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
       onClick={onClose}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      ref={dialogRef}
     >
       {/* conteúdo: o stopPropagation impede que o clique na foto "suba" até o fundo e feche */}
       <div className="relative" onClick={(e) => e.stopPropagation()}>
