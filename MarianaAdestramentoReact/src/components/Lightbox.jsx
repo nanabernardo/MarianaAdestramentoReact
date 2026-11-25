@@ -54,7 +54,7 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
       }
     };
 
-    // no documento, e não no div: o teclado só "fala" com quem está em foco   
+    // no documento, e não no div: o teclado só "fala" com quem está em foco
     document.addEventListener("keydown", handleKeyDown);
 
     // limpeza: roda antes do efeito rodar de novo e quando o Lightbox sai da tela
@@ -130,7 +130,7 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
     };
     // [] de propósito: o efeito só usa ref, que é sempre a mesma
   }, []);
-
+  
   return (
     // fundo escuro: clicar nele fecha
     <div
@@ -167,7 +167,7 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
 
         {/* aqui o alt descreve a foto, porque ela é só imagem (não é botão) */}
         <img
-          src={photo.src}
+          src={photo.srcLarge}
           alt={photo.alt}
           className="max-w-[90vw] md:max-w-[calc(100vw_-_10rem)] max-h-[90vh] rounded-lg object-contain shadow-lg"
         />

@@ -1,7 +1,5 @@
 import Cindy from "../assets/Eu_Cindy.webp";
-import Goldens from "../assets/Goldens.webp";
-import Tequila from "../assets/Tequila.webp";
-import SRDBranca from "../assets/srd_branca2.webp";
+import { fotosAdestramento } from "../data/fotos";
 import { FaWhatsapp } from "react-icons/fa";
 import Button from "../components/Button";
 import PhotoGallery from "../components/PhotoGallery";
@@ -16,11 +14,6 @@ import PageHero from "../components/PageHero";
 import StepsList from "../components/StepsList";
 
 const Adestramento = () => {
-  const images = [
-    { src: Goldens, alt: "Dois golden retrievers" },
-    { src: Tequila, alt: "Tequila, border collie" },
-    { src: SRDBranca, alt: "Cadela sem raça definida de pelo branco" },
-  ];
   return (
     <>
       {/* abertura: o desenho está no PageHero; aqui ficam só o conteúdo e os botões */}
@@ -105,7 +98,7 @@ const Adestramento = () => {
 
           {/* fotos em pé (3/4); a grade padrão do PhotoGallery já é a mesma de antes */}
 
-          <PhotoGallery photos={images} aspect="3/4" />
+          <PhotoGallery photos={fotosAdestramento} aspect="3/4" />
 
           <CTASection />
         </div>
