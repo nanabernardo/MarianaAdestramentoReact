@@ -1,15 +1,13 @@
-import Pp from "../assets/Pp.webp";
-import DoraBelaParque from "../assets/Dora_Bela_parque.webp";
 import Matilha from "../assets/matilha_parque.webp";
-import DoraBelaPp from "../assets/Dora_Bela_Pp.webp";
 import { FaWhatsapp } from "react-icons/fa";
 import { Check } from "lucide-react";
 import PageHero from "../components/PageHero";
 import Button from "../components/Button";
 import SectionHeader from "../components/SectionHeader";
 import ServiceCard from "../components/ServiceCard";
-import ResponsiveImage from "../components/ResponsiveImage";
 import CTASection from "../components/CTASection";
+import PhotoCarousel from "../components/PhotoCarousel";
+import { fotosSocializacao } from "../data/fotos";
 import {
   sinaisSocializacao,
   areasSocializacao,
@@ -18,20 +16,6 @@ import {
 import { links } from "../data/contato";
 
 const Socializacao = () => {
-  const images = [
-    {
-      src: Pp,
-      alt: "Cachorrinha pequena, pelo preto, num banco de concreto do parque",
-    },
-    {
-      src: DoraBelaParque,
-      alt: "Duas cachorras sem raça definida de pelo preto, porte grande, deitadas na grama, com a guia solta",
-    },
-    {
-      src: DoraBelaPp,
-      alt: "Três cachorras sem raça definida com pelo preto, duas de grande porte e uma de pequeno porte, sentadas na grama, ao lado de flores cor-de-rosa no parque",
-    },
-  ];
   return (
     // fragmento: a página passa a ter várias sections, uma ao lado da outra
     <>
@@ -147,19 +131,8 @@ const Socializacao = () => {
         <div className="max-w-6xl mx-auto">
           <SectionHeader title="Em boa companhia" className="mb-10" />
 
-          {/* celular: 1 coluna estreita (max-w-xs), como na Adestramento.
-              a partir de sm: 3 colunas, e o limite sai (sm:max-w-none) */}
-          <div className="max-w-xs mx-auto sm:max-w-none grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {images.map((image) => (
-              <ResponsiveImage
-                key={image.src}
-                src={image.src}
-                alt={image.alt}
-                aspect="1/1"
-                className="rounded-2xl shadow-card"
-              />
-            ))}
-          </div>
+          {/* fotos quadradas, como era a grade (aspect="1/1") */}
+          <PhotoCarousel photos={fotosSocializacao} aspect="1/1" />
 
           <CTASection />
         </div>

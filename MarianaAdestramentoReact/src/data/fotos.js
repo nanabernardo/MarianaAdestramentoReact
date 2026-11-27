@@ -11,6 +11,16 @@ import BelaPpPequena from "../assets/Bela_Pp-pequena.webp";
 import BelaPp from "../assets/Bela_Pp.webp";
 import MayaPequena from "../assets/Maya-pequena.webp";
 import Maya from "../assets/Maya.webp";
+import PpPequena from "../assets/Pp-pequena.webp";
+import Pp from "../assets/Pp.webp";
+import DoraBelaParquePequena from "../assets/Dora_Bela_parque-pequena.webp";
+import DoraBelaParque from "../assets/Dora_Bela_parque.webp";
+import DoraBelaPpPequena from "../assets/Dora_Bela_Pp-pequena.webp";
+import DoraBelaPp from "../assets/Dora_Bela_Pp.webp";
+import DoraBelaDeitadasPequena from "../assets/Dora_Bela_deitadas-pequena.webp";
+import DoraBelaDeitadas from "../assets/Dora_Bela_deitadas.webp";
+import EuDoraBelaPequena from "../assets/eu_Dora_Bela-pequena.webp";
+import EuDoraBela from "../assets/eu_Dora_Bela.webp";
 
 export const fotosAdestramento = [
   { src: GoldensPequena, srcLarge: Goldens, alt: "Dois golden retrievers" },
@@ -29,5 +39,33 @@ export const fotosAdestramento = [
     src: BelaPpPequena,
     srcLarge: BelaPp,
     alt: "Duas cadelas sem raça definida, uma porte grande deitada e a outra porte pequeno sentada, num gramado",
+  },
+];
+
+export const fotosSocializacao = [
+  {
+    src: PpPequena,
+    srcLarge: Pp,
+    alt: "Cachorrinha pequena, pelo preto, num banco de concreto do parque",
+  },
+  {
+    src: DoraBelaParquePequena,
+    srcLarge: DoraBelaParque,
+    alt: "Duas cachorras sem raça definida de pelo preto, porte grande, deitadas na grama, com a guia solta",
+  },
+  {
+    src: DoraBelaPpPequena,
+    srcLarge: DoraBelaPp,
+    alt: "Três cachorras sem raça definida com pelo preto, duas de grande porte e uma de pequeno porte, sentadas na grama, ao lado de flores cor-de-rosa no parque",
+  },
+  {
+    src: DoraBelaDeitadasPequena,
+    srcLarge: DoraBelaDeitadas,
+    alt: "Duas cachorras de pelo preto deitadas sobre folhas secas, uma delas com manchas caramelo, de língua de fora",
+  },
+  {
+    src: EuDoraBelaPequena,
+    srcLarge: EuDoraBela,
+    alt: "Mariana sorrindo, abraçada com duas cachorras de pelo preto",
   },
 ];
