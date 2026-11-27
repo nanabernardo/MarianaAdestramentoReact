@@ -1,31 +1,17 @@
-import Wendy from "../assets/Wendy.webp";
-import JackBebe from "../assets/Jack_bebe.webp";
-import Barto from "../assets/Barto.webp";
 import EuBlack from "../assets/Eu_Black.webp";
 import PageHero from "../components/PageHero";
 import Button from "../components/Button";
 import SectionHeader from "../components/SectionHeader";
 import StepsList from "../components/StepsList";
-import ResponsiveImage from "../components/ResponsiveImage";
 import CTASection from "../components/CTASection";
+import PhotoGallery from "../components/PhotoGallery";
+import { fotosPacotes } from "../data/fotos";
 import { links, linkWhatsapp } from "../data/contato";
 import { pacotes, passosPacotes } from "../data/pacotes";
 import { FaWhatsapp } from "react-icons/fa";
 import { MapPin } from "lucide-react";
 
 const Pacotes = () => {
-  const images = [
-    {
-      src: Wendy,
-      alt: "Border collie merle deitado na grama, com guia vermelha",
-    },
-    {
-      src: JackBebe,
-      alt: "Filhote de pelo branco e caramelo sentado num tapete listrado, olhando para cima",
-    },
-    { src: Barto, alt: "Cão de pelo cinza sentado, sorrindo, com guia rosa" },
-  ];
-
   return (
     <>
       {/* abertura: a foto é deitada, então aspect-4/3 no lugar do padrão
@@ -132,17 +118,7 @@ const Pacotes = () => {
           <SectionHeader title="Alguns alunos" className="mb-10" />
 
           {/* celular: 1 coluna estreita; a partir de sm: 3 colunas, sem o limite */}
-          <div className="max-w-xs mx-auto sm:max-w-none grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {images.map((image) => (
-              <ResponsiveImage
-                key={image.src}
-                src={image.src}
-                alt={image.alt}
-                aspect="1/1"
-                className="rounded-2xl shadow-card"
-              />
-            ))}
-          </div>
+          <PhotoGallery photos={fotosPacotes} />
 
           {/* só o text muda: o title padrão ("Vamos conversar?") continua */}
           <CTASection text="Conte um pouco sobre o seu cão e eu te ajudo a escolher o melhor pacote." />

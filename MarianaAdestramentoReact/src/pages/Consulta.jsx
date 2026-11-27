@@ -1,8 +1,4 @@
-import LanduPiaf from "../assets/Landu_Piaf.webp";
 import Schnauzer from "../assets/Schnauzer.webp";
-import Amora from "../assets/Amora.webp";
-import Luke from "../assets/Luke_parque.webp";
-import ResponsiveImage from "../components/ResponsiveImage";
 import CTASection from "../components/CTASection";
 import PageHero from "../components/PageHero";
 import Button from "../components/Button";
@@ -11,23 +7,11 @@ import { FaWhatsapp } from "react-icons/fa";
 import SectionHeader from "../components/SectionHeader";
 import ServiceCard from "../components/ServiceCard";
 import StepsList from "../components/StepsList";
+import PhotoGallery from "../components/PhotoGallery";
+import { fotosConsulta } from "../data/fotos";
 import { destaquesConsulta, passosConsulta } from "../data/consulta";
 
 const Consulta = () => {
-  const images = [
-    {
-      src: LanduPiaf,
-      alt: "Dois cães de pelo claro e orelhas caramelo sentados na grama, com guias azul e vermelha",
-    },
-    {
-      src: Amora,
-      alt: "Pastor alemão sentado na grama, olhando para cima com a língua de fora",
-    },
-    {
-      src: Luke,
-      alt: "Filhote de golden retriever sentado na terra, com guia vermelha, olhando para cima",
-    },
-  ];
   return (
     <>
       {/* abertura: sem imageClassName e sem imageAspect, valem os padrões
@@ -92,18 +76,8 @@ const Consulta = () => {
 
           {/* celular: 1 coluna estreita (max-w-xs), como na Socialização.
               a partir de sm: 3 colunas, e o limite sai (sm:max-w-none) */}
-          <div className="max-w-xs mx-auto sm:max-w-none grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {images.map((image) => (
-              <ResponsiveImage
-                key={image.src}
-                src={image.src}
-                alt={image.alt}
-                aspect="1/1"
-                className="rounded-2xl shadow-card"
-              />
-            ))}
-          </div>
-          
+          <PhotoGallery photos={fotosConsulta}/>
+
           {/* chamada final: os textos padrão do CTASection servem aqui */}
           <CTASection />
         </div>

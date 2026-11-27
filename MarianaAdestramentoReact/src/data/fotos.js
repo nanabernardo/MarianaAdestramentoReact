@@ -21,6 +21,18 @@ import DoraBelaDeitadasPequena from "../assets/Dora_Bela_deitadas-pequena.webp";
 import DoraBelaDeitadas from "../assets/Dora_Bela_deitadas.webp";
 import EuDoraBelaPequena from "../assets/eu_Dora_Bela-pequena.webp";
 import EuDoraBela from "../assets/eu_Dora_Bela.webp";
+import LanduPiafPequena from "../assets/Landu_Piaf-pequena.webp";
+import LanduPiaf from "../assets/Landu_Piaf.webp";
+import AmoraPequena from "../assets/Amora-pequena.webp";
+import Amora from "../assets/Amora.webp";
+import LukePequena from "../assets/Luke_parque-pequena.webp";
+import Luke from "../assets/Luke_parque.webp";
+import WendyPequena from "../assets/Wendy-pequena.webp";
+import Wendy from "../assets/Wendy.webp";
+import JackBebePequena from "../assets/Jack_bebe-pequena.webp";
+import JackBebe from "../assets/Jack_bebe.webp";
+import BartoPequena from "../assets/Barto-pequena.webp";
+import Barto from "../assets/Barto.webp";
 
 export const fotosAdestramento = [
   { src: GoldensPequena, srcLarge: Goldens, alt: "Dois golden retrievers" },
@@ -67,5 +79,41 @@ export const fotosSocializacao = [
     src: EuDoraBelaPequena,
     srcLarge: EuDoraBela,
     alt: "Mariana sorrindo, abraçada com duas cachorras de pelo preto",
+  },
+];
+
+export const fotosConsulta = [
+  {
+    src: LanduPiafPequena,
+    srcLarge: LanduPiaf,
+    alt: "Dois cães de pelo claro e orelhas caramelo sentados na grama, com guias azul e vermelha",
+  },
+  {
+    src: AmoraPequena,
+    srcLarge: Amora,
+    alt: "Pastor alemão sentado na grama, olhando para cima com a língua de fora",
+  },
+  {
+    src: LukePequena,
+    srcLarge: Luke,
+    alt: "Filhote de golden retriever sentado na terra, com guia vermelha, olhando para cima",
+  },
+];
+
+export const fotosPacotes = [
+  {
+    src: WendyPequena,
+    srcLarge: Wendy,
+    alt: "Border collie merle deitado na grama, com guia vermelha",
+  },
+  {
+    src: JackBebePequena,
+    srcLarge: JackBebe,
+    alt: "Filhote de pelo branco e caramelo sentado num tapete listrado, olhando para cima",
+  },
+  {
+    src: BartoPequena,
+    srcLarge: Barto,
+    alt: "Cão de pelo cinza sentado, sorrindo, com guia rosa",
   },
 ];
