@@ -167,7 +167,7 @@ const Lightbox = ({ photo, index, total, onPrev, onNext, onClose }) => {
 
         {/* aqui o alt descreve a foto, porque ela é só imagem (não é botão) */}
         <img
-          src={photo.srcLarge}
+          src={photo.srcLarge ?? photo.src}
           alt={photo.alt}
           className="max-w-[90vw] md:max-w-[calc(100vw_-_10rem)] max-h-[90vh] rounded-lg object-contain shadow-lg"
         />
