@@ -1,15 +1,14 @@
 import { useState } from "react";
 import Lightbox from "./Lightbox";
 
-// photos: lista de { src, alt }
-// aspect: formato das miniaturas (padrão quadrado; a Adestramento usa 3/4)
-// className: layout da grade (o padrão é o que as 4 páginas já usam hoje)
-
+// photos: lista de { src, srcLarge, alt } (vem de src/data/fotos.js)
+// aspect: formato das miniaturas (padrão quadrado)
+// className: layout da grade (o padrão é o que a Consulta e a Pacotes usam)
 const PhotoGallery = ({
   photos,
   aspect = "1/1",
   className = "max-w-xs mx-auto sm:max-w-none grid grid-cols-1 sm:grid-cols-3 gap-6",
-}) => {
+}) => { 
   // UM estado para a galeria inteira:
   // null = fechado; 0, 1, 2… = posição da foto aberta na lista
   const [openIndex, setOpenIndex] = useState(null);
@@ -35,7 +34,7 @@ const PhotoGallery = ({
               type="button"
               onClick={() => setOpenIndex(index)}
               aria-label={`Ampliar foto: ${photo.alt}`}
-              className="group block w-full cursor-zoom-in overflow-hidden rounded-2xl shadow-card focus-visible:outline-offset-4 focus-visible:outline-4 focus-visible:outline-highlight"
+              className="group block w-full cursor-pointer overflow-hidden rounded-2xl shadow-card focus-visible:outline-offset-4 focus-visible:outline-4 focus-visible:outline-highlight"
             >
               <img
                 src={photo.src}
