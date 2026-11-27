@@ -2,7 +2,7 @@ import Cindy from "../assets/Eu_Cindy.webp";
 import { fotosAdestramento } from "../data/fotos";
 import { FaWhatsapp } from "react-icons/fa";
 import Button from "../components/Button";
-import PhotoGallery from "../components/PhotoGallery";
+import PhotoCarousel from "../components/PhotoCarousel";
 import ServiceCard from "../components/ServiceCard";
 import SectionHeader from "../components/SectionHeader";
 import { gruposAdestramento } from "../data/servicos";
@@ -96,9 +96,8 @@ const Adestramento = () => {
         <div className="max-w-6xl mx-auto">
           <SectionHeader title="Alguns alunos" className="mb-10" />
 
-          {/* fotos em pé (3/4); a grade padrão do PhotoGallery já é a mesma de antes */}
-
-          <PhotoGallery photos={fotosAdestramento} aspect="3/4" />
+          {/* fotos em pé (3/4) */}
+          <PhotoCarousel photos={fotosAdestramento} />
 
           <CTASection />
         </div>
